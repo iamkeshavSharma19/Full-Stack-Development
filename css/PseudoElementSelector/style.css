@@ -1,0 +1,41 @@
+/* ! Pseudo element selector */
+/* ? ::first-letter */
+/* ? ::first-line */
+/* ! this 2 tags do'not work on inline elements */
+
+h1::first-letter {
+  color: red;
+  font-size: 50px;
+  font-style: italic;
+}
+
+h1 span {
+  display: inline-block;
+}
+
+h1 span::first-letter {
+  color: red;
+  font-size: 50px;
+  font-style: italic;
+}
+
+div::first-line {
+  color: red;
+}
+
+*::selection {
+  background-color: lightseagreen;
+}
+
+/* ! ::marker only works on the list*/
+ul > li::marker {
+  content: "✔️";
+}
+
+p::before {
+  content: "Virat ";
+}
+
+p::after {
+  content: "Virat Kohli is also called King Kohli";
+}

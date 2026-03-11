@@ -1,0 +1,7 @@
+h1 {
+  background-image: linear-gradient(cyan, violet);
+  /* ! for attaching background image inside Virat Kohli word */
+  background-clip: text;
+  color: transparent;
+}
+

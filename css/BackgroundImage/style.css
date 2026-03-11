@@ -1,0 +1,30 @@
+section {
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  /* background-attachment: fixed; */
+}
+
+.s1 {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJro0A1CWbPg_negbklIsCGvncchxIOLTlQA&s");
+  background-attachment: fixed;
+}
+
+.s2 {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3j-RVEWKChCmFFH2Rbrl7Rttwvv9ClQBBUw&s");
+}
+
+.s3 {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLBqqyD7E8zhkbJcZBDnPDRYHf18EZoUqi2Q&s");
+  background-attachment: fixed;
+}
+
+.s4 {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdIIeYSZK0HDOoK_zkubYuaXMwB0NQx7JITQ&s");
+}
+
+.s5 {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrI3-zBsnkskn_qZdWBNP0coyhCbX53zemiA&s");
+  background-attachment: fixed;
+}

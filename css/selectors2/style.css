@@ -1,0 +1,29 @@
+/* ? id selector */
+#d1 {
+  color: green;
+}
+
+/* ? class selector */
+.p3 {
+  color: yellow;
+}
+
+.flex {
+  color: magenta;
+}
+
+/* ? Universal Selector  */
+* {
+  color: teal;
+}
+
+/* ? Grouping Selector => targeting the multiple elements at once, write the elements with a comma separated between them */
+
+#d1,
+.p3 {
+  color: rebeccapurple;
+}
+
+/* ! Priority of selectors in CSS => !important > Id Selector > Class Selector > Tagname Selector > Universal Selector */
+
+

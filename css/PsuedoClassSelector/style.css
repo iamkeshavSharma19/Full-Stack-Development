@@ -1,0 +1,39 @@
+/* ! for going inside the main tag, I have basically used a space */
+main :first-child {
+  color: violet;
+}
+
+main :last-child {
+  color: red;
+}
+
+main :nth-child(3) {
+  /* ? from the above, inside the main tag target the third child of main, upar se  */
+  color: magenta;
+}
+
+main :nth-last-child(2) {
+  /* ? inside main, from the below target the second child */
+  color: green;
+}
+
+/* ! go inside article tag, select all div tags, out of those div tags, select the first div tag */
+article div:first-of-type {
+  color: crimson;
+}
+
+/* ! go inside article tag, select all span tags, out of those span tags, select the last span tag */
+article span:last-of-type {
+  color: blue;
+}
+
+/* ! go inside article tag, select all the div tags, out of those div tags, select the second div tag from above/top */
+article div:nth-of-type(2) {
+  color: magenta;
+}
+
+
+article span:nth-last-of-type(2) {
+  color: yellow;
+}
+

@@ -1,0 +1,18 @@
+* {
+  box-sizing: border-box;
+  /* ? content-box: by default */
+  margin: 0;
+  padding: 0;
+}
+
+/* ! by default browser applies 8px margin to all elements, for removing it use margin: 0 inside (*) */
+/* ! ul by default take 40px padding, for removing it use padding: 0 in (*) */
+
+.container {
+  width: 800px;
+  height: 500px;
+  border: 10px solid black;
+  background-color: peru;
+}
+
+

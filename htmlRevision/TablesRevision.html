@@ -1,0 +1,46 @@
+<!-- prettier-ignore -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tables HTML Revision</title>
+  </head>
+  <body>
+    <table border="1" cellpadding="15px" rules="all" align="center">
+      <caption>
+        Time Table
+      </caption>
+      <thead>
+        <tr align="center">
+          <th>Day</th>
+          <th>1<sup>st</sup>half</th>
+          <th>Break</th>
+          <th>2<sup>nd</sup>half</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr align="center">
+          <td>Monday</td>
+          <td>DSA</td>
+          <td rowspan="3">Lunch</td>
+          <td>Java</td>
+        </tr>
+        <tr align="center">
+          <td>Wed</td>
+          <td>SQL</td>
+          <td>MongoDB</td>
+        </tr>
+        <tr align="center">
+          <td>Friday</td>
+          <td>Frontend</td>
+          <td>Backend</td>
+        </tr>
+      </tbody>
+      <tr align="center">
+        <td>Sunday</td>
+        <td colspan="3">weekoff</td>
+      </tr>
+    </table>
+  </body>
+</html>

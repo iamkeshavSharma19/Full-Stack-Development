@@ -1,0 +1,108 @@
+<!-- prettier-ignore -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Q-Spiders Javascript 🚀</title>
+  </head>
+  <body onload="pageLoad()">
+    <h1 style="font-family: cursive">Learn Javascript</h1>
+    <h2 id="head2">target me using ID</h2>
+    <h3 class="head3">Target me using classname 1</h3>
+    <h3 class="head3">Target me using classname 2</h3>
+    <h3 class="head3">Target me using classname 3</h3>
+    <div>div 1</div>
+    <div>div 2</div>
+    <div>div 3</div>
+
+    <!-- ! Events -->
+    <br />
+    <button onclick="singleClick()">Single Click</button>
+
+    <button ondblclick="doubleClick()">Double Click</button>
+
+    <button onmouseenter="cursorEnter()">Enter</button>
+
+    <button onmouseleave="cursorExit()">Leave</button>
+
+    <button onmousemove="cursorMove()">Move</button>
+
+    <br />
+    <br />
+
+    <input type="text" onkeydown="keyPressed()" />
+
+    <input type="text" onkeyup="keyReleased()" />
+
+    <!-- ? when the focus from the input will be changed then only inputChanged function will be executed. -->
+    <input type="text" onchange="inputChanged()" />
+
+    <hr />
+    <!-- ! Form Events -->
+    <h3>Form Example 1</h3>
+    <form onsubmit="handleForm1(event)">
+      <input type="text" placeholder="Email" id="mail" />
+      <br />
+      <br />
+      <input type="text" placeholder="password" id="pass" />
+      <br />
+      <br />
+      <button>Submit</button>
+    </form>
+
+    <p
+      style="
+        height: 100px;
+        width: 100px;
+        background-color: magenta;
+        overflow-y: scroll;
+      "
+      onscroll="pageScroll()"
+    >
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae ducimus
+      laborum aspernatur quas tempore quaerat. Voluptatum mollitia enim tempora,
+      accusamus vitae molestias consequuntur ratione assumenda temporibus, ipsa
+      esse velit illum. Quasi perferendis esse ab totam amet debitis maxime at.
+      Sit, officiis dolor? Nemo, minima nesciunt quod non et impedit molestias
+      aperiam quas id corporis sit, soluta ad praesentium officiis nobis? Sequi
+      repellat dicta eum animi at dolorem delectus temporibus. Deserunt ut animi
+      recusandae. Sint magni, accusantium ad, sapiente consequuntur tempore
+      voluptatum perspiciatis dignissimos eum cupiditate labore aut eveniet
+      corrupti molestiae! Sed suscipit ex provident soluta eos, perspiciatis
+      corporis accusantium alias. Aspernatur, ipsam quisquam! Maxime blanditiis
+      rerum neque quam, distinctio vitae rem laborum. Ipsam voluptas fugiat
+      molestias assumenda temporibus veniam fugit. Ut facere totam earum
+      adipisci ex recusandae sunt consequuntur nihil laborum enim, voluptates
+      pariatur cumque asperiores ea officiis quas autem quam repellat
+      exercitationem ab dicta sit praesentium inventore. Ab, reprehenderit.
+      Mollitia, nulla autem. Ipsum nulla eum sed officiis magni velit neque
+      explicabo dolorem quod natus sit odio, vitae excepturi at. Eum impedit hic
+      illo eveniet illum, repellat molestiae labore accusantium. Explicabo
+      obcaecati laboriosam assumenda quas rem amet aut nostrum sed, iste
+      suscipit earum alias, odit quaerat exercitationem repellat, vitae
+      laudantium! Cum sapiente in id dicta adipisci hic obcaecati itaque
+      deserunt. Et delectus, dolorem iure earum quo illo itaque similique ipsa
+      magni debitis voluptatum labore tenetur facere veritatis sapiente odit
+      praesentium dignissimos? Dolore dignissimos consectetur at perferendis,
+      odit recusandae placeat fugiat. Doloribus eligendi perferendis suscipit
+      natus tenetur, ratione similique velit mollitia odio sequi id laborum!
+      Delectus in nulla quibusdam? Reiciendis similique ex alias ullam dolor
+      velit quisquam ea non explicabo nostrum. Perspiciatis commodi eveniet
+      voluptatibus! Tempora illum nisi rem praesentium aspernatur modi, sapiente
+      deserunt quaerat veniam hic optio, possimus minima accusantium expedita in
+      eos? Incidunt vel repellendus est labore dolorem. Deleniti.
+    </p>
+
+    <!-- !================ 9 feb -->
+     <form id="signupForm">
+      <input id="usernameInput" type="text">
+      <input id="emailInput" type="email">
+      <input id="passwordInput" type="password">
+      <button>Submit</button>
+     </form>
+
+    <main id="table-container"></main>
+    <script src="i9FebEvent.js"></script>
+  </body>
+</html>

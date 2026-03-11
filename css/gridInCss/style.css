@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  padding: 50px;
+  display: grid;
+  grid-template-columns: repeat(4, 250px);
+  grid-template-columns: 200px 200px 200px 1fr;
+  /* fr stands for the fractional */
+  grid-template-columns: 1fr, 1fr, 1fr, 1fr;
+  grid-template-columns: 1fr, 1fr, 2fr, 2fr;
+  grid-template-rows: repeat(3, 150px);
+  justify-items: end;
+  justify-items: center;
+  align-items: center;
+  justify-items: stretch;
+  /* remove height and width */
+  place-items: center;
+  justify-content: end;
+  align-content: end;
+}
+
+.card {
+  height: 100px;
+  width: 100px;
+  background-color: aqua;
+}

@@ -1,0 +1,40 @@
+.container {
+  height: 1200px;
+  width: 800px;
+  border: 1px solid black;
+  padding: 20px 50px;
+}
+
+.container h1 {
+  text-align: center;
+  /* ! V of Virat and K of Kohli will be become capital */
+  text-transform: capitalize;
+  /* ? padding : top/bottom left/right */
+  text-decoration: underline;
+}
+
+.container p {
+  font-size: 20px;
+  /* ? startting line of para and ending line of para will be same */
+  text-align: justify;
+  /* ! for creating a gap b/w 2 lines of paragraph use line height */
+  line-height: 1; /* 20px, line height always work with font size, by default line-height is 1 */
+  line-height: 2; /* 40px */
+}
+
+.container h2 {
+  text-align: center;
+  /* text-transform: capitalize; */
+  text-decoration: 2px solid underline crimson;
+  /* i want the words like y and j their bottom portion, should also be underlined for that */
+  text-underline-position: under;
+  /* below property is used to get underline at a little gap. */
+  /* text-underline-offset: 20px; */
+  letter-spacing: 3px;
+  word-spacing: 50px;
+  /* when you use any property, on which some experiment is going on, webkit comes */
+  -webkit-text-stroke: 1px red;
+  color: transparent;
+}
+
+

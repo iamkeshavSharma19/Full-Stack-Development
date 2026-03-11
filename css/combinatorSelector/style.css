@@ -1,0 +1,21 @@
+#section1 .p2 {
+  color: red;
+}
+
+#section2 .p1 {
+  color: magenta;
+}
+
+#section3 .p3 {
+  color: green;
+}
+
+main .tag {
+  color: aqua;
+}
+
+main .p2,
+main .p1,
+main .p3 {
+  color: violet;
+}

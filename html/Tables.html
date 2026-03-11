@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!-- DOCTYPE Is the latest version code i.e html5, it is an identifier which tells the below html is latest version -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tables In HTML</title>
+  </head>
+  <body>
+    <h1 style="font-family: cursive">Tables In HTML</h1>
+    <!-- boiler plate code => which helps us to have a basic structure, if it is in HTML then that is called HTML Boilerplate Code -->
+    <table></table>
+    <caption></caption>
+    <!-- Table Row -->
+    <tr></tr>
+    <!-- two ways to create cells in html -->
+    <!-- table heading cells -->
+    <th></th>
+    <!-- table data cells -->
+    <td></td>
+    <!-- Merging techniques -->
+    <!-- colspan, rowSpan => applied on th and td only -->
+
+    <!-- Creating a table In HTML -->
+    <table border="1" cellpadding="15px" rules="all" align="center">
+      <caption>
+        Time Table
+      </caption>
+      <!-- first row -->
+      <thead>
+        <tr align="center">
+          <th>Day</th>
+          <th>1<sup>st</sup>half</th>
+          <th>Break</th>
+          <th>2<sup>nd</sup>half</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr align="center">
+          <td>Monday</td>
+          <td>DSA</td>
+          <td rowspan="3">Lunch</td>
+          <td>java</td>
+        </tr>
+        <tr align="center">
+          <td>Wed</td>
+          <td>SQL</td>
+
+          <td>MongoDB</td>
+        </tr>
+        <tr align="center">
+          <td>Friday</td>
+          <td>Frontend</td>
+          <td>Backend</td>
+        </tr>
+      </tbody>
+      <tr align="center">
+        <td>Sunday</td>
+        <td colspan="3">weekoff</td>
+      </tr>
+    </table>
+  </body>
+</html>

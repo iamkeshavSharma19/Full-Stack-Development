@@ -1,0 +1,30 @@
+article :where(.p1, .s1) {
+  color: magenta;
+}
+
+/* ! the only difference is :is has more priority than :where in terms of specificity */
+
+article :is(.d1, .p3) {
+  color: crimson;
+}
+
+/*?  which is the parent div who has it's child as the span tag */
+div:has(span) {
+  color: seagreen;
+}
+
+/* div:not:has(span) {
+  color: blue;
+} */
+
+section:has(p) {
+  color: blueviolet;
+}
+
+/* ? target that parent section who do'not have the span child */
+/* ? This styling basically override the above written previous styling */
+section:not(:has(span)) {
+  color: wheat;
+}
+
+/* ! root is nothing but a html tag, if i donot want to write html tag, then use :root */

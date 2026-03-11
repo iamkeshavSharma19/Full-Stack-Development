@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forms In HTML - Q Spiders</title>
+  </head>
+  <body>
+    <form
+      action="
+    "
+      enctype="multipart/form-data"
+    >
+      <label for="username">
+        Username
+        <input type="text" placeholder="Enter full name" id="username" />
+      </label>
+      <br />
+      <br />
+      <br />
+      <label for="email">
+        Email <input type="email" placeholder="user@gmail.com" id="email" />
+      </label>
+      <br />
+      <br />
+      <br />
+      <label for="pass">
+        Password
+        <input type="password" placeholder="enter password" id="pass" />
+      </label>
+      <br />
+      <br />
+      <br />
+      <label for="text-area">
+        <h4>Feedback</h4>
+        <textarea
+          name="text"
+          rows="10"
+          cols="20"
+          placeholder="Write Something"
+          id="text-area"
+        ></textarea>
+      </label>
+      <!-- Select Tag In HTML -->
+      <div>
+        <select name="Select User Type">
+          <option value="Select user type" disabled></option>
+          <option value="Admin">Admin</option>
+          <option value="Premium">Premium</option>
+          <option value="Normal User">Normal User</option>
+        </select>
+      </div>
+      <div>
+        <button>Submit</button>
+      </div>
+      <br />
+      <!-- Data List In HTML => kind of type Ahead Suggestion -->
+      <div>
+        <label for="skills">
+          Skills
+          <input
+            type="text"
+            placeholder="Enter Your Skills"
+            id="skills"
+            list="skill-list"
+          />
+          <datalist id="skill-list">
+            <option value="Node JS"></option>
+            <option value="Next JS"></option>
+            <option value="React JS"></option>
+            <option value="Tailwind CSS"></option>
+            <option value="Three JS"></option>
+          </datalist>
+          <!-- Read More about Type Ahead Search Bar -->
+        </label>
+      </div>
+    </form>
+    <!-- Difference between inline and block elements in HTML -->
+  </body>
+</html>

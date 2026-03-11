@@ -1,0 +1,14 @@
+/* ? Simple Selector */
+/* ! Tag name selector / Element Selector */
+div {
+  color: red;
+}
+
+/* ? id selector */
+#d1 {
+  color: aqua;
+}
+
+#d2 {
+  color: green;
+}
