@@ -13,24 +13,26 @@ import DrillingParent from "./AllTopics/06_PropsDrilling/DrillingParent";
 import ContextParent from "./AllTopics/07_Context/ContextParent";
 import ContextProvider from "./AllTopics/07_Context/ContextProvider";
 import ControlledForms2 from "./AllTopics/08_Forms/ControlledForms2";
+import TodoWrapper from "./TodoApp/TodoWrapper";
+import TodoContextProvider from "./TodoApp/ContextProvider";
 
 function App() {
-  const [data, setData] = useState("Hello everyone");
-  const [btnData, setBtnData] = useState("Add To Cart");
+  // const [data, setData] = useState("Hello everyone");
+  // const [btnData, setBtnData] = useState("Add To Cart");
 
-  function handleBtn() {
-    setData("Byee Everyone");
-  }
+  // function handleBtn() {
+  //   setData("Byee Everyone");
+  // }
 
-  function handleAddToCart() {
-    setBtnData("Go To Cart");
-  }
+  // function handleAddToCart() {
+  //   setBtnData("Go To Cart");
+  // }
 
   return (
     <>
       {/* <FunctionBased />
       <ClassBased /> */}
-      <StatesInFBC />
+      {/* <StatesInFBC />
       <h2>{data}</h2>
       <button onClick={handleBtn}>update</button>
       <br /> <br />
@@ -50,7 +52,10 @@ function App() {
       <ContextProvider>
         <ContextParent />
       </ContextProvider>
-      <ControlledForms2 />
+      <ControlledForms2 /> */}
+      <TodoContextProvider>
+        <TodoWrapper />
+      </TodoContextProvider>
     </>
   );
 }
