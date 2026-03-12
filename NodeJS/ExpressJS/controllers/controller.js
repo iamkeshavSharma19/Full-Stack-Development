@@ -17,7 +17,7 @@ export const displayFormPage = (req, res) => {
 export const submitForm = async (req, res) => {
   console.log(req.body);
   let { userEmail, userPassword } = req.body;
-  
+
   let myColl = await connectDB();
   let op = await myColl.insertOne({ userEmail, userPassword });
 
@@ -27,6 +27,24 @@ export const submitForm = async (req, res) => {
     message: "User registered Successfully",
     data: { userEmail, userPassword },
   });
+};
+
+export const getAllUsers = async (req, res, next) => {
+  try {
+    let myColl = await connectDB();
+    let users = await myColl.find().toArray();
+    res.status(200).json({
+      success: true,
+      message: "all users fetched successfully",
+      data: users,
+    });
+  } catch (error) {
+    console.log("error occured while fetching all users");
+    res.status(500).join({
+      success: false,
+      message: error.message,
+    });
+  }
 };
 
 // export const getAllUsers = async (req, res, next) => {
