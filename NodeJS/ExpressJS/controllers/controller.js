@@ -17,7 +17,7 @@ export const displayFormPage = (req, res) => {
 export const submitForm = async (req, res) => {
   console.log(req.body);
   let { userEmail, userPassword } = req.body;
-
+  
   let myColl = await connectDB();
   let op = await myColl.insertOne({ userEmail, userPassword });
 
