@@ -1,17 +1,5 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@import "tailwindcss";
 
-body {
-  font-family: sans-serif;
-}
 
-.container {
-  background-color: royalblue;
-  color: white;
-  padding: 50px;
-  font-size: 30px;
-}
+
 
