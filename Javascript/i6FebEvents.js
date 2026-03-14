@@ -1,6 +1,5 @@
 // ! Events => Actions performed by the users
 
-
 // ! Mouse Events
 // ? onClick
 // ? ondblclick
@@ -74,6 +73,35 @@ function handleForm1(e) {
   console.log(formData);
 }
 
+//?Practising form tag and dom along with the local storage
+function handleForm2(e) {
+  e.preventDefault(); //~stops the page reload
+  console.log("form submitted");
+  const password = document.querySelector("#password");
+  console.log(password);
+
+  const mail = document.querySelector("#email");
+  console.log(mail);
+
+  //~Storing the details of the user which he has filled in the input field in the form in the obj object
+  const obj = {
+    password: password.value,
+    email: mail.value,
+  };
+
+  console.log(obj);
+
+  //?Also storing the email and password into the Local Storage
+  //?local storage can only store the data in the form of strings
+  //?so for storing arrays, objects and lists,you must first convert them into strings using JSON.stringify()
+  localStorage.setItem("user", JSON.stringify(obj));
+  //?Storing individual user's information in the local Storage (How??)
+  localStorage.setItem("userEmail", `${obj.email}`);
+  localStorage.setItem("userPassword", `${obj.password}`);
+  const parsedObj = JSON.parse(localStorage.getItem("user"));
+  console.log(parsedObj);
+}
+
 // ! window events
 // ? onLoad
 function pageLoad() {
@@ -94,5 +122,3 @@ h1Tag.addEventListener("click", () => {
 });
 
 document.body.append(h1Tag);
-
-
