@@ -8,8 +8,13 @@ const LifeCycleInFbc = () => {
   useEffect(() => {
     console.log("Component Mounted");
 
+    let id = setInterval(() => {
+      console.log("API Call");
+    }, 1500);
+
     return () => {
       console.log("Component Unmounted");
+      clearInterval(id);
     };
   }, []);
 
