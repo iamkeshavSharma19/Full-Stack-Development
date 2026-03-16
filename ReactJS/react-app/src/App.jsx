@@ -18,8 +18,12 @@ import TodoContextProvider from "./TodoApp/ContextProvider";
 import ReactCss from "./AllTopics/09_ReactCss/ReactCss";
 import TailwindPractice1 from "./AllTopics/10_TailwindCss/TailwindPractice1";
 import UncontrolledForms from "./AllTopics/08_Forms/UncontrolledForms";
+import LifeCycleCbc from "./AllTopics/11_LifeCycle/LifeCycleCbc";
+import LifeCycleInFbc from "./AllTopics/11_LifeCycle/LifeCycleInFbc";
 
 function App() {
+  const [toggle, setToggle] = useState(false);
+  const handleToggle = () => setToggle((prev) => !prev);
   // const [data, setData] = useState("Hello everyone");
   // const [btnData, setBtnData] = useState("Add To Cart");
 
@@ -62,7 +66,10 @@ function App() {
       </TodoContextProvider> */}
       {/* <ReactCss /> */}
       {/* <TailwindPractice1 /> */}
-      <UncontrolledForms />
+      {/* <UncontrolledForms /> */}
+      {/* <button onClick={handleToggle}>toggle me</button>
+      {toggle && <LifeCycleCbc />} */}
+      <LifeCycleInFbc />
     </>
   );
 }
