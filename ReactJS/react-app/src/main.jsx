@@ -12,12 +12,12 @@ import App from "./App";
 //?global css
 import "./index.css";
 
-console.log(<App />);
+// console.log(<App />);
 
-console.log(createElement(App));
+// console.log(createElement(App));
 
-createElement(App);
+// createElement(App);
 
-console.log(App);
+// console.log(App);
 
 createRoot(document.getElementById("root")).render(<App />);

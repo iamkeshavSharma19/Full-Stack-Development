@@ -20,6 +20,8 @@ import TailwindPractice1 from "./AllTopics/10_TailwindCss/TailwindPractice1";
 import UncontrolledForms from "./AllTopics/08_Forms/UncontrolledForms";
 import LifeCycleCbc from "./AllTopics/11_LifeCycle/LifeCycleCbc";
 import LifeCycleInFbc from "./AllTopics/11_LifeCycle/LifeCycleInFbc";
+import Todos from "./AllTopics/12_Fetch/Todos";
+import Products from "./AllTopics/Products/Products";
 
 function App() {
   const [toggle, setToggle] = useState(false);
@@ -69,7 +71,9 @@ function App() {
       {/* <UncontrolledForms /> */}
       {/* <button onClick={handleToggle}>toggle me</button>
       {toggle && <LifeCycleCbc />} */}
-      <LifeCycleInFbc />
+      {/* <LifeCycleInFbc /> */}
+      {/* <Todos /> */}
+      <Products />
     </>
   );
 }
