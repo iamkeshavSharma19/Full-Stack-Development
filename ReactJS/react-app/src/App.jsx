@@ -22,6 +22,7 @@ import LifeCycleCbc from "./AllTopics/11_LifeCycle/LifeCycleCbc";
 import LifeCycleInFbc from "./AllTopics/11_LifeCycle/LifeCycleInFbc";
 import Todos from "./AllTopics/12_Fetch/Todos";
 import Products from "./AllTopics/Products/Products";
+import ReducerCounter from "./AllTopics/13_Reducer/ReducerCounter";
 
 function App() {
   const [toggle, setToggle] = useState(false);
@@ -73,7 +74,8 @@ function App() {
       {toggle && <LifeCycleCbc />} */}
       {/* <LifeCycleInFbc /> */}
       {/* <Todos /> */}
-      <Products />
+      {/* <Products /> */}
+      <ReducerCounter />
     </>
   );
 }
