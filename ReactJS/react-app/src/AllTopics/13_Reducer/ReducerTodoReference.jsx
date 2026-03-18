@@ -11,7 +11,7 @@ const reducerFn = (prev, action) => {
 };
 
 const ReducerTodoReference = () => {
-  const [state, dispatch] = useReducer(reducerFunc, initialState);
+  const [state, dispatch] = useReducer(reducerFn, initialState);
 
   console.log(state);
 
