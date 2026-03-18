@@ -23,6 +23,7 @@ import LifeCycleInFbc from "./AllTopics/11_LifeCycle/LifeCycleInFbc";
 import Todos from "./AllTopics/12_Fetch/Todos";
 import Products from "./AllTopics/Products/Products";
 import ReducerCounter from "./AllTopics/13_Reducer/ReducerCounter";
+import Users from "./AllTopics/14_CustomHook/Users";
 
 function App() {
   const [toggle, setToggle] = useState(false);
@@ -75,7 +76,8 @@ function App() {
       {/* <LifeCycleInFbc /> */}
       {/* <Todos /> */}
       {/* <Products /> */}
-      <ReducerCounter />
+      {/* <ReducerCounter /> */}
+      <Users />
     </>
   );
 }
