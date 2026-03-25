@@ -27,6 +27,8 @@ import Users from "./AllTopics/14_CustomHook/Users";
 import MemoExample from "./AllTopics/15_MemoAndCallback/MemoExample";
 import Dashboard from "./AllTopics/16_Routing/Dashboard";
 
+import VirtualisedList from "./AllTopics/19_Virtualisation/VirtualisedList";
+
 function App() {
   const [toggle, setToggle] = useState(false);
   const handleToggle = () => setToggle((prev) => !prev);
@@ -81,7 +83,8 @@ function App() {
       {/* <ReducerCounter /> */}
       {/* <Users /> */}
       {/* <MemoExample /> */}
-      <Dashboard />
+      {/* <Dashboard /> */}
+      <VirtualisedList />
     </>
   );
 }
