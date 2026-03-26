@@ -28,6 +28,7 @@ import MemoExample from "./AllTopics/15_MemoAndCallback/MemoExample";
 import Dashboard from "./AllTopics/16_Routing/Dashboard";
 
 import VirtualisedList from "./AllTopics/19_Virtualisation/VirtualisedList";
+import CrudApp from "./AllTopics/20_CrudApp/CrudApp";
 
 function App() {
   const [toggle, setToggle] = useState(false);
@@ -84,7 +85,8 @@ function App() {
       {/* <Users /> */}
       {/* <MemoExample /> */}
       {/* <Dashboard /> */}
-      <VirtualisedList />
+      {/* <VirtualisedList /> */}
+      <CrudApp />
     </>
   );
 }
