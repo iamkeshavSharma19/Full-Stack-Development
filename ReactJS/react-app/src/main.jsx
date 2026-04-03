@@ -12,6 +12,7 @@ import { createElement } from "react";
 //?global css
 import "./index.css";
 import CodeSplittingExample from "./AllTopics/CodeSplittingExample/CodeSplittingExample";
+import App from "./App";
 
 // console.log(<App />);
 
@@ -21,4 +22,4 @@ import CodeSplittingExample from "./AllTopics/CodeSplittingExample/CodeSplitting
 
 // console.log(App);
 
-createRoot(document.getElementById("root")).render(<CodeSplittingExample />);
+createRoot(document.getElementById("root")).render(<App />);

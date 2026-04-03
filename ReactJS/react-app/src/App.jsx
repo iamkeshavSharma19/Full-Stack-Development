@@ -29,6 +29,8 @@ import Dashboard from "./AllTopics/16_Routing/Dashboard";
 
 import VirtualisedList from "./AllTopics/19_Virtualisation/VirtualisedList";
 import CrudApp from "./AllTopics/20_CrudApp/CrudApp";
+import ErrorCounter from "./AllTopics/22_ErrorBoundaryCBC/Counter";
+import ErrorBoundaryCBC from "./AllTopics/22_ErrorBoundaryCBC/ErrorBoundaryCBC";
 
 function App() {
   const [toggle, setToggle] = useState(false);
@@ -86,7 +88,10 @@ function App() {
       {/* <MemoExample /> */}
       {/* <Dashboard /> */}
       {/* <VirtualisedList /> */}
-      <CrudApp />
+      {/* <CrudApp /> */}
+      <ErrorBoundaryCBC>
+        <ErrorCounter />
+      </ErrorBoundaryCBC>
     </>
   );
 }
