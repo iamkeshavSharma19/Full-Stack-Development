@@ -8,9 +8,10 @@
 import { createRoot } from "react-dom/client";
 import React from "react";
 import { createElement } from "react";
-import App from "./App";
+// import App from "./App";
 //?global css
 import "./index.css";
+import CodeSplittingExample from "./AllTopics/CodeSplittingExample/CodeSplittingExample";
 
 // console.log(<App />);
 
@@ -20,4 +21,4 @@ import "./index.css";
 
 // console.log(App);
 
-createRoot(document.getElementById("root")).render(<App />);
+createRoot(document.getElementById("root")).render(<CodeSplittingExample />);
