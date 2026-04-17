@@ -17,3 +17,15 @@
 //&scaffholding package === which gives me a basic folder structure is called scaffholding package.create-vite@latest is a scaffholding package.but scaffholding package will be itself installed in the temporary location.
 
 //& npx create-vite@latest .
+
+//& npx create-vite@latest === first find this package in the local and global,if you do'not find install in the temporary location.
+
+//& npm create-vite@latest === "npm create" becomes npx and vite@ means create-vite@latest,behind the scenes it uses the above command only.
+
+//& npx create-vite@latest === without dot (.) so it ask to create a new folder inside my local folder,and in that folder it will again ask me the project name. for avoiding use dot === npx create-vite@latest.dot means install the project in my current local folder only.
+
+//& npx create-vite@latest . === It asks the package_name:ziggy,in package.json what should be the package name, dot install the project in the current folder only.
+
+//~npx create-vite@latest . --template react === Advanced way of installing the React.
+
+//?Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
