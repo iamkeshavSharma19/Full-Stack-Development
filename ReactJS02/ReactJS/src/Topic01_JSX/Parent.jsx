@@ -7,14 +7,11 @@ const Parent = () => {
         justifyContent: "space-between",
         gap: "20px",
         boxShadow: "0px 0px 4px 1px lightgrey",
-        width: "850px",
+        width: "920px",
         padding: "0px 25px",
       }}
     >
-      <img
-        src="https://do6gp1uxl3luu.cloudfront.net/profile_pic/676d41ec68ae10682ef88735_1763968319641"
-        alt="image not found"
-      />
+      <img src="hello" alt="image not found" />
 
       <h2>FirstName: Keshav</h2>
       <h2>LastName: Sharma</h2>
