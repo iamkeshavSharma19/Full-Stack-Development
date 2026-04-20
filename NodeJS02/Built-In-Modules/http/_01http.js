@@ -1,4 +1,4 @@
-//&http module is the core module used to create a server.
+//&http module is the core module used to create a server in NodeJS.
 
 //!STEPS TO CREATE A HTTP SERVER
 //?1) import http.
