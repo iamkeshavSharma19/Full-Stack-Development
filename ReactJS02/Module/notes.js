@@ -29,3 +29,14 @@
 //~npx create-vite@latest . --template react === Advanced way of installing the React.
 
 //?Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+//&Imporatant Note === In File explorer,AppData is a hidden folder,To see it,go to View === show === Hidden Items.
+
+//~Because of this my app will open automatically open in the browser.server will be automatically opened
+/*
+server: {
+    port: 5173,
+    open: true,
+  },
+
+*/

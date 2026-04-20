@@ -1,21 +1,12 @@
-import Parent from "./Topic01_JSX/Parent";
-
-const App = () => {
-  // console.log(<Parent />);
-  console.log(<h1>Hello World</h1>);
-  const msg = "Namaste React 🚀";
-  const isLogin = false;
+//&Arrow Function === Arrow Function Component.
+//&A normal plain javascript function which returns some piece of jsx is known as Function Based Component (FBC).
+export const App = () => {
   return (
-    <div className="app-component">
-      {/* React Element call */}
-
-      {/* React Component call */}
-      <Parent />
-      {/* {2 + 2 / 2}
-      <h1>{msg}</h1>
-      {isLogin ? <h1>Welcome User</h1> : <h1>Please Login</h1>} */}
+    <div>
+      <h1>Hello From React🚀</h1>
     </div>
   );
 };
 
-export default App;
+//~JSX Element / React Element
+export const heading = <h2>Namaste Developers 🚀</h2>;
