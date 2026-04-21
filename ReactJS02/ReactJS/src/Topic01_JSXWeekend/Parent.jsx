@@ -32,3 +32,4 @@ export default Parent;
 //&What is JSX ==> JSX(Javascript XML) is a syntax extension for Javascript that let's you write HTML like code inside Javascript.It was introduced by React to make building UI easier and more readable.
 
 //~JSX Rules == 1)Returns a single parent element. 2)Every tag must be closed,including self-closing ones like ==> <input />, <img /> and <br />.3)Use className instead of class. 4.)Use camelCase for Attributes 5.)Inline styles as Objects. 6.)use htmlFor. 7.)Javascript expressions in {}. for ex = <h1>{name}</h1>, <p>{2 + 2}</p> 8.)Inline Styles as Objects. 9.)Comments inside {/* */} 9.)No if/else Directly - Use Ternary or && forex ==> {isLoggedIn ? <DashBoard /> : <Shimmer />}
+
