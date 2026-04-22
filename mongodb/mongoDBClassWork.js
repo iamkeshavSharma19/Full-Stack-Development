@@ -1739,6 +1739,7 @@ db.emp.aggregate([
 //   },
 // ]);
 
+
 // // Auto-bucket employees into 3 groups by salary
 // db.emp.aggregate([
 //   {

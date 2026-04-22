@@ -18,6 +18,7 @@ app.use(express.urlencoded({ extended: true })); //&Parses form data
 
 app.get("/", (req, res) => {
   let src = fs.createReadStream("./pages/index.html", "utf-8"); //createReadStream will read the file in chunks..that's why we use createReadStream
+  console.log(src);
   src.pipe(res);
 });
 
