@@ -35,15 +35,16 @@ import List from "./Topic-1RulesOfJsx/List";
 import React from "react";
 import Card from "./Topic-1RulesOfJsx/Card";
 import Cards from "./Task_01Card/Cards";
-Cards;
+import Parent from "./Topic-2Props/Parent";
 
 export const App = () => {
   return (
-    <React.Fragment>
+    <div className="app-component">
       {/* <Card />
       <List /> */}
-      <Cards />
-    </React.Fragment>
+      {/* <Cards /> */}
+      <Parent />
+    </div>
   );
 };
 
