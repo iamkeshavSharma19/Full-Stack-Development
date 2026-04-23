@@ -33,9 +33,10 @@
 // import Card from "./Topic-1RulesOfJsx/Card";
 import List from "./Topic-1RulesOfJsx/List";
 import React from "react";
-import Card from "./Topic-1RulesOfJsx/Card";
-import Cards from "./Task_01Card/Cards";
-import Parent from "./Topic-2Props/Parent";
+import Parent from "./Topic-4Map fn/Parent";
+// import Card from "./Topic-1RulesOfJsx/Card";
+// import Cards from "./Task_01Card/Cards";
+// import Parent from "./Topic-2Props/Parent
 
 export const App = () => {
   return (
@@ -43,6 +44,7 @@ export const App = () => {
       {/* <Card />
       <List /> */}
       {/* <Cards /> */}
+      {/* <Parent /> */}
       <Parent />
     </div>
   );
