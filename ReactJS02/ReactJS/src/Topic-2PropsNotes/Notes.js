@@ -88,3 +88,5 @@ function Greet({ render }) {
 
 //?passing a function as a prop
 <Greet render={(name) => <h1>Hello, {name}</h1>} />;
+
+//&difference between render prop and default prop? === Very Very Important problem for the Interview.
