@@ -8,6 +8,10 @@ import bookRoutes from "./routes/book-routes.js";
 const app = express();
 const PORT = process.env.PORT || 9000;
 
+
+
+
+
 //!Database CONNECTION
 connectDB();
 
@@ -17,11 +21,11 @@ app.use("/v1/api", bookRoutes);
 
 //!ROUTES
 
-// app.get("/", (req, res) => {
-//   //&way to access the env variable
-//   console.log(process.env.PORT); //~undefined because we have not used dotenv package,for accessing env package we have to use dotenv package.
-//   res.send("Hii");
-// });
+app.get("/", (req, res) => {
+  //&way to access the env variable
+  console.log(process.env.PORT); //~undefined because we have not used dotenv package,for accessing env package we have to use dotenv package.
+  res.send("Hii");
+});
 
 app.listen(PORT, (err) => {
   console.log("Server started at PORT", PORT);

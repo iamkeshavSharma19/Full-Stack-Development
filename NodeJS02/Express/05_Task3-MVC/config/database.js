@@ -7,6 +7,7 @@ export async function connectDB() {
   } catch (error) {
     console.log("Database connection failed");
     //&by using process.exit() our whole connection will be disconnected,if due to some reasons our connection gets lost that's why we use process.exit.
+    process.exit();
   }
 }
 
