@@ -60,6 +60,7 @@ app.get("/get-book/:id", (req, res) => {
   //&inside params object a new key will be made with the name id,and whatever i passed in the url while sending the request === like get-book/2 so in the params object it will be {id : "2"}.
   console.log(req.params);
   let bookId = Number(req.params.id);
+  //~here object's reference will be stored inside myBook
   let myBook = Books.find((ele) => ele.id === bookId);
 
   if (!myBook) {
@@ -71,6 +72,36 @@ app.get("/get-book/:id", (req, res) => {
     message: "Book found",
     data: myBook,
   });
+});
+
+//&Updating a Single book
+app.put("/update-book/:id", (req, res) => {
+  let bookId = Number(req.params.id);
+  let bookToBeUpdated = Books.find((ele) => ele.id === bookId);
+  bookToBeUpdated.title = req.body.title;
+  res.status(200).json({
+    message: "Book Updated",
+    data: bookToBeUpdated,
+  });
+});
+
+//?Deleting a book
+app.delete("/delete-book/:id", (req, res) => {
+  let bookId = Number(req.params.id);
+  let index = Books.findIndex((ele) => ele.id === bookId);
+
+  if (index === -1) {
+    res.status(400).json({
+      message: "Book Not Found",
+    });
+  }
+
+  Books.splice(index, 1);
+
+  res.status(200).json({
+    message: "Book Deleted",
+    data: Books
+  })
 });
 
 app.listen(PORT, (err) => {
