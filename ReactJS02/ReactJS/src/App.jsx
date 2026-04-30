@@ -37,6 +37,8 @@ import Parent from "./Topic-4Map fn/Parent";
 // import Card from "./Topic-1RulesOfJsx/Card";
 // import Cards from "./Task_01Card/Cards";
 // import Parent from "./Topic-2Props/Parent
+//import Toggle from "./Topic-9ConditionalRendering-2/Toggle";
+import Counter from "./Topic-10LazyInitialisation/Counter";
 
 export const App = () => {
   return (
@@ -45,7 +47,9 @@ export const App = () => {
       <List /> */}
       {/* <Cards /> */}
       {/* <Parent /> */}
-      <Parent />
+      {/* <Parent /> */}
+      {/* <Toggle /> */}
+      <Counter />
     </div>
   );
 };
