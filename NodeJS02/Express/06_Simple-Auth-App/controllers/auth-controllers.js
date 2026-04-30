@@ -1,5 +1,6 @@
 import Users from "../models/user-model.js";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 //^for hashing the password we will use bcrypt
 
@@ -28,7 +29,8 @@ export async function handleRegister(req, res) {
       });
     }
 
-    //^password hash using bcrypt
+    //^password hash using bcrypt.
+    //! what is salt === password = 123456, salt = 1Ab48nmb89n2js8.with the help of these salt characters my password hash will be created, my hashPassword will be a mix of salt characters and my original password.
     let salt = await bcrypt.genSalt(10);
     let hashedPassword = await bcrypt.hash(password, salt);
 
@@ -58,6 +60,57 @@ export async function handleRegister(req, res) {
     });
   }
 }
-export async function handleLogin(req, res) {}
+export async function handleLogin(req, res) {
+  console.log("login route");
+  console.log(req.body);
+  let { email, password } = req.body;
+  console.log(email);
+  console.log(password);
+  try {
+    let { email, password } = req.body;
 
-//! what is salt === password = 123456, salt = 1Ab48nmb89n2js8.with the help of these salt characters my password hash will be created, my hashPassword will be a mix of salt characters and my original password.
+    let user = await Users.findOne({ email });
+
+    if (!user) {
+      return res.status(400).json({
+        success: false,
+        message: "User not found! please register first",
+      });
+    }
+
+    //^compare password
+    let isPasswordMatched = await bcrypt.compare(password, user.password);
+
+    if (!isPasswordMatched) {
+      return res.status(400).json({
+        success: false,
+        message: "Password mismatched",
+      });
+    }
+
+    //^if password matched then we have to create a token, for that we again have to install a third party library i.e JWT.inside the token user's information will also be included in the salted form, we also have to tell the expiry time after the token will be expired and the user will be automatically logged out.
+
+    const accessToken = jwt.sign(
+      {
+        //~data of user present in token
+        id: user._id,
+        username: user.username,
+        role: user.role,
+      },
+      process.env.JWT_SECRET,
+      { expiresIn: "1h" }, //1h === 1hour
+    );
+
+    res.status(200).json({
+      success: true,
+      message: "login successful",
+      accessToken,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Something went wrong",
+    });
+  }
+}
+//!if we do changes in env file then we again have to restart the server.
