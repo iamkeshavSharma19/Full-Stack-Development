@@ -5,6 +5,7 @@ import authRoutes from "./routes/auth-routes.js";
 import homeRoutes from "./routes/home-routes.js";
 import { connectDB } from "./config/database.js";
 
+
 const app = express();
 const PORT = process.env.PORT || 9000;
 

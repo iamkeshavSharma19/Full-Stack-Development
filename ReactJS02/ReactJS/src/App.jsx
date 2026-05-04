@@ -39,6 +39,9 @@ import Parent from "./Topic-4Map fn/Parent";
 // import Parent from "./Topic-2Props/Parent
 //import Toggle from "./Topic-9ConditionalRendering-2/Toggle";
 import Counter from "./Topic-10LazyInitialisation/Counter";
+import Toggle from "./Topic-11 useEffectHook/Toggle";
+import Shop from "./Topic-12 useEffect Realword/Shop";
+
 
 export const App = () => {
   return (
@@ -49,7 +52,9 @@ export const App = () => {
       {/* <Parent /> */}
       {/* <Parent /> */}
       {/* <Toggle /> */}
-      <Counter />
+      {/* <Counter /> */}
+      {/* <Toggle /> */}
+      <Shop></Shop>
     </div>
   );
 };

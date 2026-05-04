@@ -12,6 +12,5 @@
       "gmail": "Girish@gmail.com",
       "id": "t-0wwwKkTPM"
     }
-  ],
-  "$schema": "./node_modules/json-server/schema.json"
+  ]
 }
