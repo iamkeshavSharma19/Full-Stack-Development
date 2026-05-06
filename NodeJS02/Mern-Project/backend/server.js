@@ -4,11 +4,14 @@ import express from "express";
 import { connectDB } from "./config/database.js";
 import userRoutes from "./routes/user-routes.js";
 
+connectDB();
+
 const app = express();
 const PORT = process.env.PORT || 9000;
 
 app.use(express.json());
-app.use("v1/api", userRoutes);
+app.use(express.urlencoded({ extended: true }));
+app.use("/v1/api", userRoutes);
 
 app.listen(PORT, (err) => {
   if (err) console.log(err);
