@@ -41,7 +41,8 @@ import Parent from "./Topic-4Map fn/Parent";
 import Counter from "./Topic-10LazyInitialisation/Counter";
 import Toggle from "./Topic-11 useEffectHook/Toggle";
 import Shop from "./Topic-12 useEffect Realword/Shop";
-
+import Header from "./Topic-14 React RouterDom/Header";
+import { Outlet } from "react-router-dom";
 
 export const App = () => {
   return (
@@ -54,7 +55,11 @@ export const App = () => {
       {/* <Toggle /> */}
       {/* <Counter /> */}
       {/* <Toggle /> */}
-      <Shop></Shop>
+      {/* <Shop></Shop> */}
+      App
+      {/* React Routing */}
+      <Header />
+      <Outlet />
     </div>
   );
 };
