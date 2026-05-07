@@ -1,0 +1,17 @@
+.shimmer-container {
+  min-height: calc(100vh - 100px);
+}
+
+.center-container .center-container {
+  max-width: 1200px;
+  min-height: inherit;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.box {
+  width: 300px;
+  height: 400px;
+  background-color: lightgray;
+}

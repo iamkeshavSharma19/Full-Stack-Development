@@ -9,6 +9,8 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Home from "./Topic-14 React RouterDom/Home";
 import Profile from "./Topic-14 React RouterDom/Profile";
 import About from "./Topic-14 React RouterDom/About";
+import NotFound from "./Topic-14 React RouterDom/NotFound";
+
 //~createBrowserRouter is a function.
 
 //&Routing Configuration
@@ -33,6 +35,11 @@ const appRouter = createBrowserRouter([
         element: <About />,
       },
     ],
+  },
+  //~Global Error Handling Page
+  {
+    path: "*",
+    element: <NotFound />,
   },
 ]);
 
