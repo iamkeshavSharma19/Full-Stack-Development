@@ -3,6 +3,7 @@ import { verifyEmail } from "../config/verify-mail.js";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import { Session } from "../models/session-model.js";
+import { sendOtpMail } from "../config/otp-mail.js";
 
 // ================= REGISTER =================
 export const registerUser = async (req, res) => {
@@ -156,7 +157,7 @@ export const loginUser = async (req, res) => {
 
     //~for login the user, we have to create one more session for user.
     //&is there any exising session for the user or not ???
-    
+
     const existingSession = await Session.findOne({ userId: user._id });
 
     if (existingSession) {
@@ -199,6 +200,61 @@ export const loginUser = async (req, res) => {
   } catch (error) {
     console.log(error);
     return res.status(500).json({
+      success: false,
+      message: "Something went wrong",
+    });
+  }
+};
+
+//? ===================== Logout =======================
+export const logout = async (req, res) => {
+  try {
+    const userId = req.userId; // authMiddleware.
+    const sessionPromise = await Session.deleteMany({ userId });
+    const userPromise = await User.findByIdAndUpdate(userId, {
+      isLoggedIn: false,
+    });
+    Promise.allSettled([sessionPromise, userPromise]).then(() => {
+      return res.status({
+        success: true,
+        message: "",
+      });
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Something went wrong",
+    });
+  }
+};
+
+export const forgotPassword = async (req, res) => {
+  try {
+    const { email } = req.body;
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(400).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    const otp = Math.floor(1000000 + Math.random() * 9000000).toString();
+    const expiry = new Date(Date.now() + 10 * 60 * 1000);
+
+    user.otp = otp;
+    user.otpExpiry = expiry;
+    await user.save();
+
+    //~This function we still have to make.
+    await sendOtpMail(email, otp);
+    return res.status({
+      success: true,
+      message: `OTP sent to ${email}`,
+    });
+  } catch (error) {
+    res.status(500).json({
       success: false,
       message: "Something went wrong",
     });
