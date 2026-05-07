@@ -83,6 +83,7 @@ function App() {
           name="gmail"
           placeholder="Gmail"
           value={form.gmail}
+          
           onChange={handleChange}
         />
 
