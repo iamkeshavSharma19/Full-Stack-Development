@@ -228,6 +228,7 @@ export const logout = async (req, res) => {
   }
 };
 
+//~ =========================== forgotPassword ======================
 export const forgotPassword = async (req, res) => {
   try {
     const { email } = req.body;
@@ -257,6 +258,109 @@ export const forgotPassword = async (req, res) => {
     res.status(500).json({
       success: false,
       message: "Something went wrong",
+    });
+  }
+};
+
+//^ ========================= verifyOtp ==============================
+export const verifyOtp = async (req, res) => {
+  try {
+    const { otp } = req.body;
+    const email = req.params.email;
+
+    if (!otp) {
+      return res.status(400).json({
+        success: false,
+        message: "OTP is required",
+      });
+    }
+
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(400).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    if (!user.otp || !user.otpExpiry) {
+      return res.status(400).json({
+        success: false,
+        message: "OTP not generated or allready verified",
+      });
+    }
+
+    if (user.otpExpiry < new Date()) {
+      return res.status(400).json({
+        success: false,
+        message: "OTP has expied.Please request a new one.",
+      });
+    }
+
+    if (otp !== user.otp) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid otp",
+      });
+    }
+
+    user.otp = null;
+    user.otpExpiry = null;
+    await user.save();
+
+    return res.status(200).json({
+      success: true,
+      message: "OTP verified successfully",
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+//* =========================== confirmPassword =======================
+export const confirmPassword = async (req, res) => {
+  try {
+    const { newPassword, confirmPassword } = req.body;
+    const email = req.params.email;
+    if (!newPassword || !confirmPassword) {
+      return res.status(400).json({
+        success: false,
+        message: "All fields are required",
+      });
+    }
+
+    if (newPassword !== confirmPassword) {
+      return res.status(400).json({
+        success: false,
+        message: "Password mismatch",
+      });
+    }
+
+    if (!user) {
+      return res.status(400).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(newPassword, salt);
+
+    user.password = hashedPassword;
+    await user.save();
+
+    return res.status(200).json({
+      success: true,
+      message: "Password changed successfully",
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: error.message,
     });
   }
 };
