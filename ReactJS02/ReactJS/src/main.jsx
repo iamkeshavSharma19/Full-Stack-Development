@@ -10,6 +10,7 @@ import Home from "./Topic-14 React RouterDom/Home";
 import Profile from "./Topic-14 React RouterDom/Profile";
 import About from "./Topic-14 React RouterDom/About";
 import NotFound from "./Topic-14 React RouterDom/NotFound";
+import ProductPage from "./Topic-14 React RouterDom/ProductPage";
 
 //~createBrowserRouter is a function.
 
@@ -33,6 +34,11 @@ const appRouter = createBrowserRouter([
       {
         path: "about",
         element: <About />,
+      },
+      //?Dynamic Routing
+      {
+        path: "products/:id",
+        element: <ProductPage />,
       },
     ],
   },

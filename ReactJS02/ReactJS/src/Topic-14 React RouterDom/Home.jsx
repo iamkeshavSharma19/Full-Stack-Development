@@ -1,6 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import Card from "./Card";
+import { Link } from "react-router-dom";
 
 //&Abort Controller === If a user is on page where there is an api call but user shifts to other page, so i need to stop that request.use abort controller. ex == drinking water.
 
@@ -24,7 +26,7 @@ const Home = () => {
 
         const data = await response.json();
         console.log("data: ", data);
-        setProducts(data);
+        setProducts(data?.products);
       } catch (error) {
         //&this is how you handle the AbortError.
         if (error.name === "AbortError") {
@@ -50,8 +52,21 @@ const Home = () => {
   return (
     <div id="home">
       <h1>Welcome To Home Page</h1>
-      {products.map((el) => {
-        return <h1>{el.title}</h1>;
+      {/* map always returns us a fixed length */}
+      {products.map((singleProduct, index) => {
+        const { title, category, price, description, images } = singleProduct;
+        return (
+          //?basically link component changes the url which is written inside "to".
+          <Link key={singleProduct.id} to={`/products/${singleProduct.id}`}>
+            <Card
+              title={title}
+              category={category}
+              price={price}
+              description={description}
+              images={images}
+            />
+          </Link>
+        );
       })}
     </div>
   );
