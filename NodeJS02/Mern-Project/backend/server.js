@@ -3,8 +3,15 @@ dotenv.config({ quiet: true });
 import express from "express";
 import { connectDB } from "./config/database.js";
 import userRoutes from "./routes/user-routes.js";
+import { cors } from "cors";
 
 connectDB();
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL,
+    credentials: true,
+  }),
+);
 
 const app = express();
 const PORT = process.env.PORT || 9000;

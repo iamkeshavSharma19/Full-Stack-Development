@@ -18,6 +18,7 @@ export const registerUser = async (req, res) => {
     }
 
     const isExistingUser = await User.findOne({ email });
+
     if (isExistingUser) {
       return res.status(400).json({
         success: false,
@@ -25,25 +26,26 @@ export const registerUser = async (req, res) => {
       });
     }
 
-    // password hash
+    // hash password
     const hashedPassword = await bcrypt.hash(password, 10);
 
+    // create user
     const newUser = await User.create({
       username,
       email,
       password: hashedPassword,
-      isVerified: false, // important for email verification
+      isVerified: false,
     });
 
-    // generate token
+    // generate verification token
     const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET, {
       expiresIn: "10m",
     });
 
-    // send email
+    // send verification mail
     await verifyEmail(token, email);
 
-    // store token (optional)
+    // save token
     newUser.token = token;
     await newUser.save();
 
@@ -53,6 +55,7 @@ export const registerUser = async (req, res) => {
     });
   } catch (error) {
     console.log(error);
+
     return res.status(500).json({
       success: false,
       message: "Server error",
@@ -75,6 +78,7 @@ export const verification = async (req, res) => {
     const token = authHeader.split(" ")[1];
 
     let decodedInfo;
+
     try {
       decodedInfo = jwt.verify(token, process.env.JWT_SECRET);
     } catch (error) {
@@ -91,7 +95,6 @@ export const verification = async (req, res) => {
       });
     }
 
-    // update user as verified
     const user = await User.findById(decodedInfo.id);
 
     if (!user) {
@@ -103,6 +106,7 @@ export const verification = async (req, res) => {
 
     user.isVerified = true;
     user.token = null;
+
     await user.save();
 
     return res.status(200).json({
@@ -110,6 +114,8 @@ export const verification = async (req, res) => {
       message: "Email verified successfully",
     });
   } catch (error) {
+    console.log(error);
+
     return res.status(500).json({
       success: false,
       message: "Something went wrong",
@@ -147,7 +153,7 @@ export const loginUser = async (req, res) => {
       });
     }
 
-    // check if verified
+    // check email verification
     if (!user.isVerified) {
       return res.status(400).json({
         success: false,
@@ -155,19 +161,15 @@ export const loginUser = async (req, res) => {
       });
     }
 
-    //~for login the user, we have to create one more session for user.
-    //&is there any exising session for the user or not ???
+    // remove old sessions if exist
+    await Session.deleteMany({ userId: user._id });
 
-    const existingSession = await Session.findOne({ userId: user._id });
+    // create new session
+    await Session.create({
+      userId: user._id,
+    });
 
-    if (existingSession) {
-      await Session.deleteOne({ userId: user._id });
-    }
-
-    //! create new session
-    await Session.create({ userId: user._id });
-
-    //! create accessToken
+    // generate tokens
     const accessToken = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
       expiresIn: "10d",
     });
@@ -184,21 +186,14 @@ export const loginUser = async (req, res) => {
       message: `Welcome Back ${user.username}`,
       accessToken,
       refreshToken,
-      user: { username: user.username },
-    });
-
-    // login token
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
-      expiresIn: "1d",
-    });
-
-    return res.status(200).json({
-      success: true,
-      message: "Login successful",
-      token,
+      user: {
+        username: user.username,
+        email: user.email,
+      },
     });
   } catch (error) {
     console.log(error);
+
     return res.status(500).json({
       success: false,
       message: "Something went wrong",
@@ -206,32 +201,44 @@ export const loginUser = async (req, res) => {
   }
 };
 
-//? ===================== Logout =======================
+// ================= LOGOUT =================
 export const logout = async (req, res) => {
   try {
-    const userId = req.userId; // authMiddleware.
-    const sessionPromise = await Session.deleteMany({ userId });
-    const userPromise = await User.findByIdAndUpdate(userId, {
-      isLoggedIn: false,
-    });
-    Promise.allSettled([sessionPromise, userPromise]).then(() => {
-      return res.status({
-        success: true,
-        message: "",
-      });
+    const userId = req.userId;
+
+    await Promise.allSettled([
+      Session.deleteMany({ userId }),
+      User.findByIdAndUpdate(userId, {
+        isLoggedIn: false,
+      }),
+    ]);
+
+    return res.status(200).json({
+      success: true,
+      message: "Logged out successfully",
     });
   } catch (error) {
-    res.status(500).json({
+    console.log(error);
+
+    return res.status(500).json({
       success: false,
       message: "Something went wrong",
     });
   }
 };
 
-//~ =========================== forgotPassword ======================
+// ================= FORGOT PASSWORD =================
 export const forgotPassword = async (req, res) => {
   try {
     const { email } = req.body;
+
+    if (!email) {
+      return res.status(400).json({
+        success: false,
+        message: "Email is required",
+      });
+    }
+
     const user = await User.findOne({ email });
 
     if (!user) {
@@ -241,28 +248,35 @@ export const forgotPassword = async (req, res) => {
       });
     }
 
-    const otp = Math.floor(1000000 + Math.random() * 9000000).toString();
+    // generate 6-digit OTP
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+
+    // expiry time => 10 mins
     const expiry = new Date(Date.now() + 10 * 60 * 1000);
 
     user.otp = otp;
     user.otpExpiry = expiry;
+
     await user.save();
 
-    //~This function we still have to make.
+    // send otp mail
     await sendOtpMail(email, otp);
-    return res.status({
+
+    return res.status(200).json({
       success: true,
       message: `OTP sent to ${email}`,
     });
   } catch (error) {
-    res.status(500).json({
+    console.log(error);
+
+    return res.status(500).json({
       success: false,
       message: "Something went wrong",
     });
   }
 };
 
-//^ ========================= verifyOtp ==============================
+// ================= VERIFY OTP =================
 export const verifyOtp = async (req, res) => {
   try {
     const { otp } = req.body;
@@ -287,26 +301,30 @@ export const verifyOtp = async (req, res) => {
     if (!user.otp || !user.otpExpiry) {
       return res.status(400).json({
         success: false,
-        message: "OTP not generated or allready verified",
+        message: "OTP not generated or already verified",
       });
     }
 
+    // check expiry
     if (user.otpExpiry < new Date()) {
       return res.status(400).json({
         success: false,
-        message: "OTP has expied.Please request a new one.",
+        message: "OTP has expired. Please request a new one.",
       });
     }
 
+    // verify otp
     if (otp !== user.otp) {
       return res.status(400).json({
         success: false,
-        message: "Invalid otp",
+        message: "Invalid OTP",
       });
     }
 
+    // clear otp
     user.otp = null;
     user.otpExpiry = null;
+
     await user.save();
 
     return res.status(200).json({
@@ -314,6 +332,8 @@ export const verifyOtp = async (req, res) => {
       message: "OTP verified successfully",
     });
   } catch (error) {
+    console.log(error);
+
     return res.status(500).json({
       success: false,
       message: error.message,
@@ -321,11 +341,12 @@ export const verifyOtp = async (req, res) => {
   }
 };
 
-//* =========================== confirmPassword =======================
+// ================= CONFIRM PASSWORD =================
 export const confirmPassword = async (req, res) => {
   try {
     const { newPassword, confirmPassword } = req.body;
     const email = req.params.email;
+
     if (!newPassword || !confirmPassword) {
       return res.status(400).json({
         success: false,
@@ -340,6 +361,8 @@ export const confirmPassword = async (req, res) => {
       });
     }
 
+    const user = await User.findOne({ email });
+
     if (!user) {
       return res.status(400).json({
         success: false,
@@ -347,10 +370,12 @@ export const confirmPassword = async (req, res) => {
       });
     }
 
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(newPassword, salt);
+    // hash new password
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
 
+    // save password
     user.password = hashedPassword;
+
     await user.save();
 
     return res.status(200).json({
@@ -358,6 +383,8 @@ export const confirmPassword = async (req, res) => {
       message: "Password changed successfully",
     });
   } catch (error) {
+    console.log(error);
+
     return res.status(500).json({
       success: false,
       message: error.message,
