@@ -7,6 +7,7 @@ import { cors } from "cors";
 
 connectDB();
 app.use(
+  
   cors({
     origin: process.env.FRONTEND_URL,
     credentials: true,
