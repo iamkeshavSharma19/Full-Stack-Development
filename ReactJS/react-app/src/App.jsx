@@ -31,6 +31,9 @@ import VirtualisedList from "./AllTopics/19_Virtualisation/VirtualisedList";
 import CrudApp from "./AllTopics/20_CrudApp/CrudApp";
 import ErrorCounter from "./AllTopics/22_ErrorBoundaryCBC/Counter";
 import ErrorBoundaryCBC from "./AllTopics/22_ErrorBoundaryCBC/ErrorBoundaryCBC";
+import Parent from "./AllTopics/066_Context/Parent";
+import ContextExample from "./AllTopics/066_Context/ContextExample";
+Parent;
 
 function App() {
   const [toggle, setToggle] = useState(false);
@@ -89,9 +92,12 @@ function App() {
       {/* <Dashboard /> */}
       {/* <VirtualisedList /> */}
       {/* <CrudApp /> */}
-      <ErrorBoundaryCBC>
+      {/* <ErrorBoundaryCBC>
         <ErrorCounter />
-      </ErrorBoundaryCBC>
+      </ErrorBoundaryCBC> */}
+      <ContextExample>
+        <Parent />
+      </ContextExample>
     </>
   );
 }
