@@ -36,6 +36,7 @@ import ErrorBoundaryCBC from "./AllTopics/22_ErrorBoundaryCBC/ErrorBoundaryCBC";
 
 import Parent from "./AllTopics/066_ContextRevision/Parent";
 import ContextStore from "./AllTopics/066_ContextRevision/ContextStore";
+import ControlledForms1 from "./AllTopics/010_ControlledForms/ControlledForms1";
 
 function App() {
   const [toggle, setToggle] = useState(false);
@@ -102,11 +103,12 @@ function App() {
       {/* <ContextExample>
         <Parent />
       </ContextExample> */}
-      <ContextStore>
-        {/* Children Props */}
-        <Parent />
-        <h1>Namaste</h1>
-      </ContextStore>
+      {/* <ContextStore> */}
+      {/* Children Props */}
+      {/* <Parent /> */}
+      {/* <h1>Namaste</h1> */}
+      {/* </ContextStore> */}
+      <ControlledForms1 />
     </>
   );
 }
