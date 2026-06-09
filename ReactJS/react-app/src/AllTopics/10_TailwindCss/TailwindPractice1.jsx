@@ -3,6 +3,7 @@ const TailwindPractice1 = () => {
     <div>
       {/* <h1 className="bg-violet-900 text-white text-3xl rounded-4xl text-center">
         Tailwind Practice
+        
       </h1>
 
       <button className="bg-green-800 text-white py-1 px-2.5 rounded-4xl">
