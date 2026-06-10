@@ -14,7 +14,7 @@ import ContextParent from "./AllTopics/07_Context/ContextParent";
 import ContextProvider from "./AllTopics/07_Context/ContextProvider";
 import ControlledForms2 from "./AllTopics/08_Forms/ControlledForms2";
 import TodoWrapper from "./TodoApp/TodoWrapper";
-import TodoContextProvider from "./TodoApp/ContextProvider";
+//import TodoContextProvider from "./TodoApp/ContextProvider";
 import ReactCss from "./AllTopics/09_ReactCss/ReactCss";
 import TailwindPractice1 from "./AllTopics/10_TailwindCss/TailwindPractice1";
 import UncontrolledForms from "./AllTopics/08_Forms/UncontrolledForms";
@@ -31,12 +31,14 @@ import VirtualisedList from "./AllTopics/19_Virtualisation/VirtualisedList";
 import CrudApp from "./AllTopics/20_CrudApp/CrudApp";
 import ErrorCounter from "./AllTopics/22_ErrorBoundaryCBC/Counter";
 import ErrorBoundaryCBC from "./AllTopics/22_ErrorBoundaryCBC/ErrorBoundaryCBC";
+import TodoApp from "./Task1/TodoApp";
 // import Parent from "./AllTopics/066_Context/Parent";
 // import ContextExample from "./AllTopics/066_Context/ContextExample";
 
 import Parent from "./AllTopics/066_ContextRevision/Parent";
 import ContextStore from "./AllTopics/066_ContextRevision/ContextStore";
 import ControlledForms1 from "./AllTopics/010_ControlledForms/ControlledForms1";
+import { TodoContextProvider } from "./Task1/context/TodoContextProvider";
 
 function App() {
   const [toggle, setToggle] = useState(false);
@@ -108,7 +110,10 @@ function App() {
       {/* <Parent /> */}
       {/* <h1>Namaste</h1> */}
       {/* </ContextStore> */}
-      <ControlledForms1 />
+      {/* <ControlledForms1 /> */}
+      <TodoContextProvider>
+        <TodoApp />
+      </TodoContextProvider>
     </>
   );
 }
