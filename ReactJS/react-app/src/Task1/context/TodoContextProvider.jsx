@@ -17,7 +17,7 @@ export const TodoContextProvider = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newTodo = {
-      //~Date.now() === gives us the current data with milliseconds and milliseconds will always be unique.
+      //~Date.now() === gives us the current date with milliseconds and milliseconds will always be unique.
       //?trim() === It is used for removing the leading and the trailing spaces
 
       id: Date.now(),
