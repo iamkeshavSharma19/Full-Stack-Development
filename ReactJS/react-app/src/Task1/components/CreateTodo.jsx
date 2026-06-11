@@ -2,7 +2,6 @@ import React from "react";
 import { useContext } from "react";
 import { TodoContext } from "../context/TodoContextProvider";
 
-
 const CreateTodo = () => {
   const { todo, handleTodo, handleSubmit } = useContext(TodoContext);
 
@@ -21,6 +20,7 @@ const CreateTodo = () => {
         />
         <br /> <br />
         <button>Create</button>
+        
       </form>
     </div>
   );
