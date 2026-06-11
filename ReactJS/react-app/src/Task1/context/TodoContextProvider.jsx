@@ -1,6 +1,5 @@
 import React, { createContext, useState } from "react";
 
-
 export const TodoContext = createContext();
 
 export const TodoContextProvider = (props) => {
@@ -37,8 +36,34 @@ export const TodoContextProvider = (props) => {
     setTodo("");
   };
 
+  //?Deleting the todo
+  const handleDeleteTodo = (id) => {
+    const todos = [...allTodos];
+    const filteredTodos = todos.filter((ele) => ele.id !== id);
+    setAllTodos(filteredTodos);
+    localStorage.setItem("todos", JSON.stringify(filteredTodos));
+  };
+
+  //~Editing the todo
+  const handleEditTodo = (id) => {
+    //&Very very similar to the delete functionality
+    const todos = [...allTodos];
+    const todoToEdit = todos.find((ele) => ele.id === id);
+    handleDeleteTodo(id);
+    setTodo(todoToEdit.text);
+  };
+
   return (
-    <TodoContext.Provider value={{ todo, handleTodo, handleSubmit }}>
+    <TodoContext.Provider
+      value={{
+        todo,
+        handleTodo,
+        handleSubmit,
+        allTodos,
+        handleDeleteTodo,
+        handleEditTodo,
+      }}
+    >
       {props.children}
     </TodoContext.Provider>
   );
