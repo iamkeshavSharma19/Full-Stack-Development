@@ -8,6 +8,8 @@ export const TodoContextProvider = (props) => {
     const savedTodos = localStorage.getItem("todos");
     return savedTodos ? JSON.parse(savedTodos) : [];
   });
+  //~Creating a new state variable for editing
+  const [editId, setEditId] = useState(null);
 
   const handleTodo = (e) => {
     setTodo(e.target.value);
@@ -15,6 +17,22 @@ export const TodoContextProvider = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    //&edit logic === little bit confusing Logic
+    if (editId) {
+      const todos = [...allTodos];
+      const updatedTodos = todos.map((ele) => {
+        if (ele.id === editId) {
+          return { ...ele, text: todo };
+        } else {
+          return ele;
+        }
+      });
+      setAllTodos(updatedTodos);
+      localStorage.setItem("todos", JSON.stringify(updatedTodos));
+      setTodo("");
+      setEditId(null);
+      return;
+    }
     const newTodo = {
       //~Date.now() === gives us the current date with milliseconds and milliseconds will always be unique.
       //?trim() === It is used for removing the leading and the trailing spaces
@@ -49,7 +67,7 @@ export const TodoContextProvider = (props) => {
     //&Very very similar to the delete functionality
     const todos = [...allTodos];
     const todoToEdit = todos.find((ele) => ele.id === id);
-    handleDeleteTodo(id);
+    setEditId(id);
     setTodo(todoToEdit.text);
   };
 
@@ -62,6 +80,7 @@ export const TodoContextProvider = (props) => {
         allTodos,
         handleDeleteTodo,
         handleEditTodo,
+        editId,
       }}
     >
       {props.children}

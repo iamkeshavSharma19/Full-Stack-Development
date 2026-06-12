@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { TodoContext } from "../context/TodoContextProvider";
 
 const CreateTodo = () => {
-  const { todo, handleTodo, handleSubmit } = useContext(TodoContext);
+  const { todo, handleTodo, handleSubmit, editId } = useContext(TodoContext);
 
   return (
     <div>
@@ -19,8 +19,7 @@ const CreateTodo = () => {
           onChange={handleTodo}
         />
         <br /> <br />
-        <button>Create</button>
-        
+        <button>{editId ? "Update" : "Create"}</button>
       </form>
     </div>
   );
