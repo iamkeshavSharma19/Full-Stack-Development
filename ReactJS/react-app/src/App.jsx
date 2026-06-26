@@ -39,10 +39,13 @@ import Parent from "./AllTopics/066_ContextRevision/Parent";
 import ContextStore from "./AllTopics/066_ContextRevision/ContextStore";
 import ControlledForms1 from "./AllTopics/010_ControlledForms/ControlledForms1";
 import { TodoContextProvider } from "./Task1/context/TodoContextProvider";
+import Routing2 from "./AllTopics/016_Routing/Routing2";
+import LifeCycleInCBC from "./AllTopics/0111_LifeCycle/LifeCycleInCBC";
 
 function App() {
   const [toggle, setToggle] = useState(false);
   const handleToggle = () => setToggle((prev) => !prev);
+
   // const [data, setData] = useState("Hello everyone");
   // const [btnData, setBtnData] = useState("Add To Cart");
 
@@ -111,9 +114,12 @@ function App() {
       {/* <h1>Namaste</h1> */}
       {/* </ContextStore> */}
       {/* <ControlledForms1 /> */}
-      <TodoContextProvider>
+      {/* <TodoContextProvider>
         <TodoApp />
-      </TodoContextProvider>
+      </TodoContextProvider> */}
+      {/* <Routing2 /> */}
+      <button onClick={handleToggle}>Toggle Me</button>
+      {toggle && <LifeCycleInCBC />}
     </>
   );
 }
