@@ -1,6 +1,5 @@
 import express from "express";
 
-
 const Books = [
   {
     id: 1,
@@ -71,6 +70,58 @@ app.post("/add-book", (req, res) => {
   });
 });
 
+//& EDIT A BOOK
+app.put("/edit-book/:id", (req, res) => {
+  if (!req.body) {
+    return res.status(400).json({
+      message: "all fields are required",
+    });
+  }
+
+  try {
+    let { title } = req.body;
+    const bookID = parseInt(req.params.id);
+    const bookToBeEdited = Books.find((ele) => ele.id === bookID);
+    bookToBeEdited.title = title;
+    res.status(200).json({
+      message: "book updated",
+      data: bookToBeEdited,
+    });
+  } catch (error) {
+    res.status(400).json({
+      message: "Unable to edit book",
+      error,
+    });
+  }
+});
+
+//?Delete A Book
+app.delete("/delete-book/:id", (req, res) => {
+  try {
+    //?If index is not present then this method will return us -1.
+    const bookID = parseInt(req.params.id);
+
+    const index = Books.findIndex((ele) => ele.id === bookID);
+    if (index === -1) {
+      res.status(400).json({
+        message: "Book Not Found",
+      });
+    }
+
+    Books.splice(index, 1);
+
+    res.status(200).json({
+      message: "Book Deleted",
+      data: Books,
+    });
+  } catch (error) {
+    res.status(400).json({
+      message: "Unable to edit book",
+      error,
+    });
+  }
+});
+
 app.listen(PORT, (err) => {
   if (err) {
     console.log("Unable To start server at", PORT);
@@ -78,4 +129,3 @@ app.listen(PORT, (err) => {
 
   console.log("Server started at ", PORT);
 });
-
