@@ -18,8 +18,8 @@ import TodoWrapper from "./TodoApp/TodoWrapper";
 import ReactCss from "./AllTopics/09_ReactCss/ReactCss";
 import TailwindPractice1 from "./AllTopics/10_TailwindCss/TailwindPractice1";
 import UncontrolledForms from "./AllTopics/08_Forms/UncontrolledForms";
-import LifeCycleCbc from "./AllTopics/11_LifeCycle/LifeCycleCbc";
-import LifeCycleInFbc from "./AllTopics/11_LifeCycle/LifeCycleInFbc";
+// import LifeCycleCbc from "./AllTopics/11_LifeCycle/LifeCycleCbc";
+// import LifeCycleInFbc from "./AllTopics/11_LifeCycle/LifeCycleInFbc";
 import Todos from "./AllTopics/12_Fetch/Todos";
 import Products from "./AllTopics/Products/Products";
 import ReducerCounter from "./AllTopics/13_Reducer/ReducerCounter";
@@ -40,7 +40,9 @@ import ContextStore from "./AllTopics/066_ContextRevision/ContextStore";
 import ControlledForms1 from "./AllTopics/010_ControlledForms/ControlledForms1";
 import { TodoContextProvider } from "./Task1/context/TodoContextProvider";
 import Routing2 from "./AllTopics/016_Routing/Routing2";
-import LifeCycleInCBC from "./AllTopics/0111_LifeCycle/LifeCycleInCBC";
+import LifeCycleInFBC from "./AllTopics/0111_LifeCycle/LifeCycleInFBC";
+import FetchProducts from "./AllTopics/013_Fetch/FetchProducts";
+// import LifeCycleInCBC from "./AllTopics/0111_LifeCycle/LifeCycleInCBC";
 
 function App() {
   const [toggle, setToggle] = useState(false);
@@ -103,7 +105,6 @@ function App() {
       {/* <ErrorBoundaryCBC>
         <ErrorCounter />
       </ErrorBoundaryCBC> */}
-
       {/* New React Batch Started */}
       {/* <ContextExample>
         <Parent />
@@ -119,7 +120,8 @@ function App() {
       </TodoContextProvider> */}
       {/* <Routing2 /> */}
       <button onClick={handleToggle}>Toggle Me</button>
-      {toggle && <LifeCycleInCBC />}
+      {toggle && <FetchProducts />}
+      {/* <FetchProducts /> */}
     </>
   );
 }
