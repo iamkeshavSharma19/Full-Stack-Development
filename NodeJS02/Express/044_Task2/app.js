@@ -116,7 +116,23 @@ app.delete("/delete-book/:id", (req, res) => {
     });
   } catch (error) {
     res.status(400).json({
-      message: "Unable to edit book",
+      message: "Unable to delete book",
+      error,
+    });
+  }
+});
+
+//* Delete All Books
+app.delete("/delete-all", (req, res) => {
+  try {
+    Books.splice(0, Books.length);
+    res.status(200).json({
+      message: "All Books deleted",
+      data: Books,
+    });
+  } catch (error) {
+    res.status(400).json({
+      message: "Unable to delete all books",
       error,
     });
   }
