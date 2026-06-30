@@ -11,6 +11,7 @@ const LifeCycleInFBC = () => {
     //&CleanUp function is executed during unmounting phase only,this useEffect will not be executed during the Mounting Phase.
 
     return () => {
+      //?Clean up's function job is to cancel the unnecessary API Calls when the component is unmounted.
       console.log("Component Unmounted");
     };
   }, []);

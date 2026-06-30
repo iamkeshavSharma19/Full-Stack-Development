@@ -42,6 +42,7 @@ import { TodoContextProvider } from "./Task1/context/TodoContextProvider";
 import Routing2 from "./AllTopics/016_Routing/Routing2";
 import LifeCycleInFBC from "./AllTopics/0111_LifeCycle/LifeCycleInFBC";
 import FetchProducts from "./AllTopics/013_Fetch/FetchProducts";
+import Reducer from "./AllTopics/014_Reducer/Reducer";
 // import LifeCycleInCBC from "./AllTopics/0111_LifeCycle/LifeCycleInCBC";
 
 function App() {
@@ -119,9 +120,10 @@ function App() {
         <TodoApp />
       </TodoContextProvider> */}
       {/* <Routing2 /> */}
-      <button onClick={handleToggle}>Toggle Me</button>
-      {toggle && <FetchProducts />}
+      {/* <button onClick={handleToggle}>Toggle Me</button>
+      {toggle && <FetchProducts />} */}
       {/* <FetchProducts /> */}
+      <Reducer />
     </>
   );
 }

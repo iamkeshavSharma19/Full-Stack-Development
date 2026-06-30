@@ -1,8 +1,11 @@
 import React, { Component } from "react";
+//~Component is a inbuilt Parent class, so that's why we extend it [inherit] it because render method, methods like componentDidMount() is present inside the Component class.
 
 export default class LifeCycleInCBC extends Component {
   constructor() {
-    //&constructor is called first during Mounting Phase because It Contains all the state variable's initializations.
+    //&constructor is called first during Mounting Phase because It Contains all the state variable's initializations.from the backend when api call is made and data comes then to keep that data, we should have the state container, so that's why constructor is called first.
+    //?this points out to the object of the current class.
+    //?super() is used for inheriting the properties and methods from the parent class to the child class.
     super();
     this.state = { count: 0 };
   }
@@ -24,6 +27,7 @@ export default class LifeCycleInCBC extends Component {
 
   componentDidUpdate() {
     //^Growth Of The Component.
+    //^Updating phase.
     console.log("Component Updated");
   }
 
