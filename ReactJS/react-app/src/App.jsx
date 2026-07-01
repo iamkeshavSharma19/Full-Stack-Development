@@ -43,6 +43,7 @@ import Routing2 from "./AllTopics/016_Routing/Routing2";
 import LifeCycleInFBC from "./AllTopics/0111_LifeCycle/LifeCycleInFBC";
 import FetchProducts from "./AllTopics/013_Fetch/FetchProducts";
 import Reducer from "./AllTopics/014_Reducer/Reducer";
+import Optimisation from "./AllTopics/015_Optimisation/Optimisation";
 // import LifeCycleInCBC from "./AllTopics/0111_LifeCycle/LifeCycleInCBC";
 
 function App() {
@@ -123,7 +124,8 @@ function App() {
       {/* <button onClick={handleToggle}>Toggle Me</button>
       {toggle && <FetchProducts />} */}
       {/* <FetchProducts /> */}
-      <Reducer />
+      {/* <Reducer /> */}
+      <Optimisation />
     </>
   );
 }
