@@ -1,0 +1,18 @@
+.container {
+  background-color: orange;
+  height: 200px;
+  width: 300px;
+}
+
+#heading {
+  background-color: blueviolet;
+}
+
+/* ?Never use element selector in module css because it's CSS could be leaked, so always use id or class in module.css file and target it using style reference variable. */
+/* p {
+  background-color: green;
+} */
+
+.para {
+  background-color: green;
+}

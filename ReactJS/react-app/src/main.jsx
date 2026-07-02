@@ -13,6 +13,8 @@ import { createElement } from "react";
 import "./index.css";
 import CodeSplittingExample from "./AllTopics/CodeSplittingExample/CodeSplittingExample";
 import App from "./App";
+//*Global CSS
+import "./global.css";
 
 // console.log(<App />);
 

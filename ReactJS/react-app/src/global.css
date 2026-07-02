@@ -1,0 +1,17 @@
+/** here we will write global css.Make sure to import this global.css file in the main.jsx  */
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+/** Now importing tailwindCSS in the globalCss file */
+@import "tailwindcss";
+
+.container {
+  background-color: yellow;
+  height: 200px;
+  width: 200px;
+}
