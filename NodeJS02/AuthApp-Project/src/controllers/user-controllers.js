@@ -2,6 +2,7 @@ import { User } from "../models/user-model.js";
 import bcrypt from "bcrypt";
 
 export async function register(req, res) {
+  console.log("Register Api hit");
   try {
     let { username, email, password } = req.body;
     if (!username || !email || !password) {

@@ -9,7 +9,7 @@ import { connectDB } from "./src/config/database.js";
 const app = express();
 connectDB();
 
-const PORT = process.env.PORT || 9000;
+const PORT = process.env.PORT || 7777;
 app.use(express.json());
 
 console.log(authRoutes);

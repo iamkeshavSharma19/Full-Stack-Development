@@ -8,7 +8,7 @@
 
 
 /** Now importing tailwindCSS in the globalCss file */
-@import "tailwindcss";
+/* @import "tailwindcss"; */
 
 .container {
   background-color: yellow;

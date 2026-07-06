@@ -45,6 +45,7 @@ import FetchProducts from "./AllTopics/013_Fetch/FetchProducts";
 import Reducer from "./AllTopics/014_Reducer/Reducer";
 import Optimisation from "./AllTopics/015_Optimisation/Optimisation";
 import CSSExample from "./AllTopics/016_ReactCSS/CSSExample";
+import ReduxApp from "./AllTopics/018_ReduxApp/ReduxApp";
 // import LifeCycleInCBC from "./AllTopics/0111_LifeCycle/LifeCycleInCBC";
 
 function App() {
@@ -127,7 +128,8 @@ function App() {
       {/* <FetchProducts /> */}
       {/* <Reducer /> */}
       {/* <Optimisation /> */}
-      <CSSExample />
+      {/* <CSSExample /> */}
+      <ReduxApp />
     </>
   );
 }
