@@ -1,5 +1,7 @@
 import { User } from "../models/user-model.js";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import { verify } from "../config/verify-mail.js";
 
 export async function register(req, res) {
   console.log("Register Api hit");
@@ -33,10 +35,25 @@ export async function register(req, res) {
 
     //?Once the user is created, then we have to verify email as well
 
+    //?If the user is created then we will create a json web token for the user.
+    //! Generating the token.
+    //! in that token there must be some details of the user, id of the user is unique, so we will keep the user id inside the token
+    //?In our token our newUser's id will be there along with it this jwt secret would also be there, our json web wil be the mix up of these 2.
+    const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET, {
+      expiresIn: "10m",
+    });
+
+    //?Once the token is generated then we have to send an email also to the the user for the verification, for that we will install nodemailer as well as the handlebars packages.inside config folder make new file ==> verify-mail.js
+
+    //!VERIFYING EMAIL
+    //~FUNCTION CALL
+    verify(token, email);
+
     res.status(201).json({
       success: true,
       message: "User created",
       data: newUser,
+      token,
     });
   } catch (error) {
     res.status(500).json({
