@@ -5,7 +5,7 @@ const ControlledForms1 = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleUsername = (e) => {``
+  const handleUsername = (e) => {
     console.log(e);
     console.log(e.target);
     console.log(e.target.value);
