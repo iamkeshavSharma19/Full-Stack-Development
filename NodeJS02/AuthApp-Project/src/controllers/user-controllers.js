@@ -47,7 +47,7 @@ export async function register(req, res) {
 
     //!VERIFYING EMAIL
     //~FUNCTION CALL
-    verify(token, email);
+    await verify(token, email);
 
     res.status(201).json({
       success: true,
