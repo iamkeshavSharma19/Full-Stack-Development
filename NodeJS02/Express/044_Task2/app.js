@@ -141,6 +141,7 @@ app.delete("/delete-all", (req, res) => {
 app.listen(PORT, (err) => {
   if (err) {
     console.log("Unable To start server at", PORT);
+    return;
   }
 
   console.log("Server started at ", PORT);
