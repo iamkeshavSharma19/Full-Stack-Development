@@ -38,3 +38,9 @@ console.log(
   }),
 );
 
+console.log(`Sync Code`);
+console.log(`Sync Code`);
+console.log(`Sync Code`);
+console.log(`Sync Code`);
+console.log(`Sync Code`);
+console.log(`Sync Code`);
