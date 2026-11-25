@@ -51,6 +51,62 @@ console.log(Array.isArray(allSpansPure)); //true
 //~What is i pass that selector which does'not exists in my real dom ?????
 
 const ele = document.querySelector(".keshav");
-console.log(ele);//!null
+console.log(ele); //!null
 
+const ele1 = document.querySelector(`#head22`);
 
+console.log(ele1);
+
+const ele2 = document.querySelector(`.head3`);
+
+console.log(ele2);
+
+const ele3 = document.querySelector(`h3, .head3, #head22`);
+
+console.log(ele3); // ! only id will be targeted, because priority of id is higher than class and tag (id > class > tag)
+
+const ele5 = document.querySelectorAll(`.head4`);
+
+console.log(ele5); // ! NodeList => we can use forEach array method in NodeList
+
+console.log(ele5.length);
+
+const div = document.querySelector(`#head4Parent`);
+const h2 = document.createElement(`h2`);
+
+h2.classList.add(`head4`);
+div.appendChild(h2);
+
+const ele6 = document.querySelectorAll(`.head4`);
+
+console.log(ele6);
+console.log(ele6.length); //NodeList === Static Collection.
+
+//! Let me do the same work with document.getElementByClassName
+
+const ele7 = document.getElementsByClassName(`head4`);
+
+console.log(ele7);
+console.log(ele7.length); //HTMLCollection === Live Collection.
+
+const h2Ele = document.createElement(`h2`);
+
+h2Ele.classList.add(`head4`);
+
+h2Ele.textContent = `Head4 CLASS`;
+
+div.appendChild(h2Ele);
+
+console.log(ele7.length);
+console.log(ele6.length);
+
+// ? Similarities
+// ? Both are impure array
+
+// ? Difference between HTMLCollection and NodeList.
+// ! Cannot use any of the array methods in HTMLCollection.
+// ! HTML Collection is called LIVE COLLECTION.
+
+// ! NODE LIST is called STATIC Collection
+
+// ? Whenever we use getElementsByClassName or tagName we get HTMLCollection, Whenever we use querySelectorAll we get NodeList.
