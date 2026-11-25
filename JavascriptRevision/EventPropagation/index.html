@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Propagation In JS</title>
+    <script src="./01_EventPropagation.js" defer></script>
+    <style>
+      section {
+        height: 400px;
+        width: 400px;
+        background-color: white;
+        border: 1px solid black;
+        display: grid;
+        place-items: center;
+      }
+      article {
+        height: 250px;
+        width: 250px;
+        background-color: white;
+        border: 1px solid black;
+        display: grid;
+        place-items: center;
+      }
+      div {
+        height: 100px;
+        width: 100px;
+        background-color: white;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body style="background-color: black; color: aliceblue; font-family: cursive">
+    <h1>Learn Event Propagation In JS</h1>
+
+    <section>
+      <article>
+        <div></div>
+      </article>
+    </section>
+  </body>
+</html>
