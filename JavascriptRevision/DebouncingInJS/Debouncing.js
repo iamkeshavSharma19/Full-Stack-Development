@@ -12,7 +12,7 @@ const debounce = (func, wait) => {
 
     //!setTimeout function returns us a timerId.
     console.log(timerId);
-    console.log(clearTimeout(timerId));
+    // console.log(clearTimeout(timerId));
     
     clearTimeout(timerId);
     timerId = setTimeout(() => {
@@ -30,7 +30,7 @@ const callApi = (e) => {
 };
 
 
-const debouncedCallApi = debounce(callApi, 2000);
+const debouncedCallApi = debounce(callApi, 15000);
 
 console.log(debouncedCallApi);
 
