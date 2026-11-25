@@ -1,3 +1,4 @@
+
 const inputElement = document.querySelector("input");
 
 const debounce = (func, wait) => {
@@ -10,10 +11,15 @@ const debounce = (func, wait) => {
     //?For Delaying the function call Here We have to put the setTimeOut.
 
     //!setTimeout function returns us a timerId.
+    console.log(timerId);
+    console.log(clearTimeout(timerId));
+    
     clearTimeout(timerId);
-    setTimeout(() => {
+    timerId = setTimeout(() => {
       func(e);
     }, wait);
+    console.log(timerId);
+    
     // func(e);
   }
 
