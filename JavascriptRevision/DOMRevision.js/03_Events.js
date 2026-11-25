@@ -1,0 +1,52 @@
+// ! Events => Actions performed by the users
+
+// ! Mouse Events
+// ? onClick
+// ? ondblclick
+// ? onmouseenter
+// ? onmouseleave
+// ? onmousemove
+
+// ! Keyboard Events
+// ? onkeydown
+// ? onkeyup
+// ? onchange
+
+// ! Form Submit
+// ? onsubmit
+
+// ! Form Events
+// ? onSubmit ==> always used in the form tag
+
+const handleForm1 = (e) => {
+  e.preventDefault();
+  // console.log(e);
+  console.log(e);
+
+  //!Way 01
+  //? making an object which have the email and the password of the user.
+
+  console.log(e.target);
+  console.log(e.target.value);
+
+  const formData = {
+    email: e.target[0].value,
+    password: e.target[1].value,
+  };
+
+  console.log(formData);
+
+  //!Way 02
+  const mail = document.getElementById("mail");
+
+  const pass = document.getElementById("pass")
+
+  const formData1 = {
+    email: mail.value,
+    password: pass.value,
+  }
+
+
+  console.log(formData1);
+  
+};

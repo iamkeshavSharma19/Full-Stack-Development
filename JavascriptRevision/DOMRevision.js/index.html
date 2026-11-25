@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DOM Revision In JS</title>
-    <script src="./02_Dom.js" defer></script>
+    <script src="./03_Events.js" defer></script>
   </head>
   <body style="background-color: black; color: aliceblue; font-family: cursive">
     <h1>DOM Revision In JS</h1>
@@ -49,6 +49,26 @@
     <!-- ?Create a Table element dynnamically using JavaScript -->
 
     <div id="main-container"></div>
+
+
+    <!-- !FORM EVENTS -->
+
+    <h3>Form Example 01</h3>
+    <form onsubmit="handleForm1(event)">
+
+      <input type="text" placeholder="Email" id="mail" />
+
+      <br>
+      <br>
+
+      <input type="password" placeholder="password" id="pass"/>
+
+      <br>
+      <br>
+
+      <button>Submit</button>
+
+    </form>
 
   </body>
 </html>
