@@ -6,7 +6,7 @@ console.log(h2Tag);
 console.log(h2Tag.textContent);
 console.log(h2Tag.innerHTML);
 
-//~What if I Pass that id which does'not exist in my real dom, then in that case I will get null.
+//~What if I Pass that id which does'not exist in my real dom, then in that case I will get null.Even If I pass empty string I will still get null.
 
 const keshav = document.getElementById(`keshav`); //~null
 console.log(keshav);
@@ -40,11 +40,17 @@ console.log(Array.isArray(h2SingleTag)); //false
 
 //!Array.from() method returns us a new Pure Array.
 
-
 const allSpansPure = Array.from(allSpans);
 console.log(allSpans);
 console.log(allSpansPure);
-console.log(Array.isArray(allSpans));//false
-console.log(Array.isArray(allSpansPure));//true
+console.log(Array.isArray(allSpans)); //false
+console.log(Array.isArray(allSpansPure)); //true
+
+// ! 4) document.querySelector ==> it will give me the error if I passed an empty string.
+
+//~What is i pass that selector which does'not exists in my real dom ?????
+
+const ele = document.querySelector(".keshav");
+console.log(ele);//!null
 
 
