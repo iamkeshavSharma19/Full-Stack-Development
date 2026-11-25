@@ -96,8 +96,8 @@ const h3Tag02 = document.createElement("h3");
 h3Tag02.classList.add("head3");
 
 div.appendChild(h3Tag02);
-console.log(ele6.length);//NodeList => Static Collection
-console.log(ele8.length);//HTMLCollection => Live Collection
+console.log(ele6.length); //NodeList => Static Collection
+console.log(ele8.length); //HTMLCollection => Live Collection
 // ? Similarities
 // ? Both are impure array
 
