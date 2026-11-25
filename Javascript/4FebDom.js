@@ -29,7 +29,7 @@ console.log(h3Tags[1].textContent);
 console.log(Array.isArray(h3Tags));
 // ! convert impure array to pure array Array.from() returns pure array
 console.log(Array.from(h3Tags));
-//!Array.isArray() method returns us a new Pure Array.
+//!Array.from() method returns us a new Pure Array.
 const pureArr = Array.from(h3Tags);
 console.log(pureArr);
 console.log(Array.isArray(pureArr));

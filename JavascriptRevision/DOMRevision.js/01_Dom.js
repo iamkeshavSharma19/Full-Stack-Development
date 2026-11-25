@@ -24,3 +24,27 @@ console.log(demo1); //Empty HTML Collection.
 
 const demo2 = document.getElementsByClassName(``);
 console.log(demo2); //Empty HTML Collection.
+
+//& document.getElementsByTagName
+const allSpans = document.getElementsByTagName(`span`);
+
+console.log(allSpans);
+
+// ? If we want to check array is pure or not => Array.isArray() returns boolean.
+
+console.log(Array.isArray(allSpans)); //false
+
+console.log(Array.isArray(h2SingleTag)); //false
+
+// ! convert impure array to pure array Array.from() returns pure array.
+
+//!Array.from() method returns us a new Pure Array.
+
+
+const allSpansPure = Array.from(allSpans);
+console.log(allSpans);
+console.log(allSpansPure);
+console.log(Array.isArray(allSpans));//false
+console.log(Array.isArray(allSpansPure));//true
+
+
