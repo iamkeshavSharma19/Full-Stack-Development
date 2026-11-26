@@ -8,6 +8,17 @@ const callApi = (e) => {
 
 inputTag.addEventListener("input", callApi);
 
-document.addEventListener(`mousemove`, () => {
+const updateNumber = throttle(() => {
   span.innerText = ++span.innerText;
-});
+}, 5000)
+
+document.addEventListener(`mousemove`, updateNumber);
+
+
+function throttle (func, delay) {
+    return () => {
+
+      func();
+
+    }
+}
