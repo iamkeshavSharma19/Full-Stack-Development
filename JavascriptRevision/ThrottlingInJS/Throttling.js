@@ -10,15 +10,25 @@ inputTag.addEventListener("input", callApi);
 
 const updateNumber = throttle(() => {
   span.innerText = ++span.innerText;
-}, 5000)
+}, 2000)
 
 document.addEventListener(`mousemove`, updateNumber);
 
 
 function throttle (func, delay) {
+
+  let timerId = null;
+
     return () => {
 
-      func();
+    if (timerId) return;
+
+    
+
+    timerId = setTimeout(() => {
+        timerId = null;
+        func();
+      }, delay);
 
     }
 }
