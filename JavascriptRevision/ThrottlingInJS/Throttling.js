@@ -6,7 +6,7 @@ const callApi = (e) => {
   console.log(`API Call made - ${e.target.value}`);
 };
 
-inputTag.addEventListener("input", debouncedFunc);
+inputTag.addEventListener("input", callApi);
 
 document.addEventListener(`mousemove`, () => {
   span.innerText = ++span.innerText;
