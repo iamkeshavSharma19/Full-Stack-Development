@@ -23,5 +23,9 @@ printFullName.call(myName2, "Missisaga", "Canada");
 
 printFullName.apply(myName2, ["Missisaga", "Canada"]);
 
+//?BIND IN JS
 
-
+// bind method
+let printName = printFullName.bind(myName, "Vancouver", "Canada");
+console.log(printName);
+printName();
