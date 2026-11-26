@@ -9,5 +9,12 @@
 
 //? Failure Behavior (Fail-Fast): If any of the input promises is rejected, Promise.all() immediately rejects with the reason of the first promise that failed, without waiting for the others.In this case output will be error, same error returned by the failed promise.
 
+// **Promise.allSettled** is a helpful JavaScript tool used to run multiple tasks at the same time and get the result for every single one of them, regardless of whether they succeeded or failed (12:03-13:00).
 
+// Here is how it works:
 
+// *   **Waits for everything:** Unlike other APIs that might stop if one task fails, `Promise.allSettled` waits until **every promise** has finished, whether it was a success or an error (13:17-14:15).
+
+// *   **Gives you the full picture:** It returns an array containing the status of each promise, which will be either **fulfilled** (for success) or **rejected** (for failure), along with the corresponding value or error reason (14:15-15:25).
+
+// *   **Why use it:** It is considered the safest option when you want to make sure you have all the results from your operations before deciding what to do next, even if some parts of your process run into issues (42:57-43:10).
