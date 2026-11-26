@@ -8,3 +8,6 @@
 //? Execution Time: The total time taken is determined by the slowest promise in the array, as it waits for all of them to finish (5:20-6:10).
 
 //? Failure Behavior (Fail-Fast): If any of the input promises is rejected, Promise.all() immediately rejects with the reason of the first promise that failed, without waiting for the others.In this case output will be error, same error returned by the failed promise.
+
+
+
