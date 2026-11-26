@@ -18,3 +18,18 @@
 // *   **Gives you the full picture:** It returns an array containing the status of each promise, which will be either **fulfilled** (for success) or **rejected** (for failure), along with the corresponding value or error reason (14:15-15:25).
 
 // *   **Why use it:** It is considered the safest option when you want to make sure you have all the results from your operations before deciding what to do next, even if some parts of your process run into issues (42:57-43:10).
+
+
+
+
+//? **Promise.race** acts exactly like a race among multiple promises (16:49-17:28).
+
+// *   **The Winner Takes All:** It takes an array of promises and returns the result (either a success value or an error) of the **first one to settle** (17:35-18:15).
+
+
+
+//? *   **Fastest Settler Wins:** As soon as any single promise in the group either finishes successfully or fails, `Promise.race` immediately provides that result and ignores all the others (20:30-21:28).
+
+
+//? *   **Crucial Detail:** Because it returns the result of the *first* to settle, it doesn't matter if that winner was a success or a failure—it will give you whatever that first promise returned (19:15-19:25).
+
