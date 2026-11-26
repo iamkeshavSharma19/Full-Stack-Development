@@ -6,7 +6,32 @@ const callApi = (e) => {
   console.log(`API Call made - ${e.target.value}`);
 };
 
-inputTag.addEventListener("input", callApi);
+//! IMPLEMENTING THROTTLING WITH INPUT TAG.
+// const throttleCallAPI = (func, delay) => {
+
+//   let timerId = null;
+
+
+//   return (e) => {
+
+//   if (timerId) return;
+
+//    timerId = setTimeout(() => {
+//       timerId = null;
+//       func(e)
+//     }, delay);
+//   }
+
+// }
+
+
+const throttleFunc = throttle(callApi, 1000);
+
+
+
+
+
+inputTag.addEventListener("input", throttleFunc);
 
 const updateNumber = throttle(() => {
   span.innerText = ++span.innerText;
@@ -19,7 +44,7 @@ function throttle (func, delay) {
 
   let timerId = null;
 
-    return () => {
+    return (...args) => {
 
     if (timerId) return;
 
@@ -27,8 +52,11 @@ function throttle (func, delay) {
 
     timerId = setTimeout(() => {
         timerId = null;
-        func();
+        func(...args);
       }, delay);
 
     }
 }
+
+
+
