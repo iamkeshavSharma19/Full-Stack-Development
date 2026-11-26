@@ -26,3 +26,13 @@
 //? *   **Fastest Settler Wins:** As soon as any single promise in the group either finishes successfully or fails, `Promise.race` immediately provides that result and ignores all the others (20:30-21:28).
 
 //? *   **Crucial Detail:** Because it returns the result of the *first* to settle, it doesn't matter if that winner was a success or a failure—it will give you whatever that first promise returned (19:15-19:25).
+
+//! **Promise.any** is a JavaScript API that acts like a "success-seeking" race (21:28-22:50).
+
+//! *   **Wait for the first success:** It takes an array of promises and waits until the **first one resolves successfully** (22:15-22:45). Once that happens, it returns the result of that winner immediately (23:05-23:15).
+
+//! *   **Ignores failures:** If some promises in the array fail, `Promise.any` will simply ignore them and keep waiting for any other promise to succeed (23:35-24:10).
+
+//! *   **Aggregate Error:** The only time it fails is if **every single promise** in the array is rejected (25:05-25:20). In that case, it returns an **AggregateError**, which is a special object containing all the individual error messages from the failed promises (25:25-26:40).
+
+
